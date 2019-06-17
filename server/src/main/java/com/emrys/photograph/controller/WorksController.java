@@ -6,6 +6,7 @@ import com.emrys.photograph.pojo.Work;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -13,7 +14,9 @@ public class WorksController {
 
     @RequestMapping("/works")
     public List<Work> works() {
-        return null;
+        ArrayList<Work> objects = new ArrayList<>();
+        objects.add(new Work());
+        return objects;
     }
 
     @RequestMapping("/categories")

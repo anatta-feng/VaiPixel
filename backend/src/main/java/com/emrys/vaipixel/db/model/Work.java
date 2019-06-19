@@ -1,13 +1,16 @@
 package com.emrys.vaipixel.db.model;
 
+import com.emrys.vaipixel.db.enums.WorkTypeEnum;
+
 public class Work {
     private long id;
     private long createdTime;
     private long updatedTime;
     private int width;
     private int height;
-    private int type;
+    private WorkTypeEnum type;
 
+    private String title;
     private String description;
 
     private Image image;
@@ -56,11 +59,11 @@ public class Work {
         this.height = height;
     }
 
-    public int getType() {
+    public WorkTypeEnum getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(WorkTypeEnum type) {
         this.type = type;
     }
 

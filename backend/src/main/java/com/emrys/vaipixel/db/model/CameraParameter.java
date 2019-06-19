@@ -21,6 +21,10 @@ public class CameraParameter {
      * iso
      */
     private int iso;
+    /**
+     * 快门时间
+     */
+    private String shutter;
 
     public String getCamera() {
         return camera;

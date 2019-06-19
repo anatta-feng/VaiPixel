@@ -11,6 +11,7 @@ public class PhotographApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		System.out.println("Hello world");
 	}
 
 }

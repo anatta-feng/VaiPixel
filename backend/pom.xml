@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.emrys</groupId>
-    <artifactId>photograph</artifactId>
+    <artifactId>vaipixel</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>photograph</name>
+    <name>vaipixel</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -74,7 +74,7 @@
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.6</version>
+                <version>1.3.7</version>
                 <configuration>
                     <configurationFile>${basedir}/src/main/resources/generator/generatorConfig.xml</configurationFile>
                     <overwrite>true</overwrite>

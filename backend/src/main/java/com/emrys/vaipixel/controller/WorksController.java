@@ -1,8 +1,8 @@
-package com.emrys.photograph.controller;
+package com.emrys.vaipixel.controller;
 
-import com.emrys.photograph.pojo.Category;
-import com.emrys.photograph.pojo.Tag;
-import com.emrys.photograph.pojo.Work;
+import com.emrys.vaipixel.db.model.Category;
+import com.emrys.vaipixel.db.model.Tag;
+import com.emrys.vaipixel.db.model.Work;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,4 +1,4 @@
-package com.emrys.photograph.pojo;
+package com.emrys.vaipixel.db.model;
 
 /**
  * 拍摄设备信息

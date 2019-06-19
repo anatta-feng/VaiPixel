@@ -1,6 +1,6 @@
-package com.emrys.photograph.controller;
+package com.emrys.vaipixel.controller;
 
-import com.emrys.photograph.pojo.WrapperPojo;
+import com.emrys.vaipixel.db.model.WrapperPojo;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;

@@ -1,4 +1,4 @@
-package com.emrys.photograph.controller;
+package com.emrys.vaipixel.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 

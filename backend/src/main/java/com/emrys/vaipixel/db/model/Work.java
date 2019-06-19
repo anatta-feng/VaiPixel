@@ -1,4 +1,4 @@
-package com.emrys.photograph.pojo;
+package com.emrys.vaipixel.db.model;
 
 public class Work {
     private long id;
@@ -11,6 +11,8 @@ public class Work {
     private String description;
 
     private Image image;
+
+    private int duration;
 
     private CameraParameter cameraParameter;
 

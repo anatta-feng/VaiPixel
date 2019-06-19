@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 19/06/2019 20:53:12
+ Date: 19/06/2019 21:05:13
 */
 
 SET NAMES utf8mb4;
@@ -73,7 +73,8 @@ CREATE TABLE `works` (
   `update_time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6) COMMENT '更新时间',
   `width` int(11) DEFAULT NULL COMMENT '图片宽度/视频宽度',
   `height` int(11) DEFAULT NULL COMMENT '图片高度/视频高度',
-  `type` int(2) NOT NULL COMMENT '作品类型类型',
+  `type` varchar(32) NOT NULL COMMENT '作品类型类型',
+  `title` varchar(255) DEFAULT '',
   `description` text COMMENT '作品描述',
   `rowUrl` varchar(255) DEFAULT NULL,
   `fullUrl` varchar(255) DEFAULT NULL,

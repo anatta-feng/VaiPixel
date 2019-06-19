@@ -3,6 +3,7 @@ package com.emrys.vaipixel.db.model;
 public class User {
     private long id;
     private String name;
+    private String email;
 
     public long getId() {
         return id;

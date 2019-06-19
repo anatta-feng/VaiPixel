@@ -1,49 +1,49 @@
 package com.emrys.vaipixel.db.model;
 
 public class Image {
-    private String row;
-    private String full;
-    private String regular;
-    private String small;
-    private String thumb;
+    private String rowUrl;
+    private String fullUrl;
+    private String regularUrl;
+    private String smallUrl;
+    private String thumbUrl;
 
-    public String getRow() {
-        return row;
+    public String getRowUrl() {
+        return rowUrl;
     }
 
-    public void setRow(String row) {
-        this.row = row;
+    public void setRowUrl(String rowUrl) {
+        this.rowUrl = rowUrl;
     }
 
-    public String getFull() {
-        return full;
+    public String getFullUrl() {
+        return fullUrl;
     }
 
-    public void setFull(String full) {
-        this.full = full;
+    public void setFullUrl(String fullUrl) {
+        this.fullUrl = fullUrl;
     }
 
-    public String getRegular() {
-        return regular;
+    public String getRegularUrl() {
+        return regularUrl;
     }
 
-    public void setRegular(String regular) {
-        this.regular = regular;
+    public void setRegularUrl(String regularUrl) {
+        this.regularUrl = regularUrl;
     }
 
-    public String getSmall() {
-        return small;
+    public String getSmallUrl() {
+        return smallUrl;
     }
 
-    public void setSmall(String small) {
-        this.small = small;
+    public void setSmallUrl(String smallUrl) {
+        this.smallUrl = smallUrl;
     }
 
-    public String getThumb() {
-        return thumb;
+    public String getThumbUrl() {
+        return thumbUrl;
     }
 
-    public void setThumb(String thumb) {
-        this.thumb = thumb;
+    public void setThumbUrl(String thumbUrl) {
+        this.thumbUrl = thumbUrl;
     }
 }

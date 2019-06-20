@@ -24,7 +24,7 @@ public class PhotoMapperTest {
         System.out.println(all);
 
         Photo photo = new Photo();
-        photo.setId(10);
+        photo.setId(11);
         photo.setTitle("秋名山");
         photo.setDescription("五菱宏光");
         photo.setAperture(14);

@@ -28,8 +28,12 @@ public interface PhotoMapper {
             "photo")
     List<Photo> getAll();
 
-    @Insert("INSERT INTO works()")
-    void insert(Work work);
+    @Insert("INSERT INTO `vaipixel`.`photo`" +
+            "(`id`, `title`, `description`, `width`, `height`, `row_url`, `full_url`, `regular_url`, `small_url`, `thumb_url`, `camera`, `lens`, `focal_length`, `aperture`, `iso`, `shutter`, `category_id`, `author_id`) " +
+            "VALUES (#{id}, #{title}, #{description}, #{width}, #{height}, #{rowUrl}, #{fullUrl}, " +
+            "#{regularUrl}, #{smallUrl}, #{thumbUrl}, #{camera}, #{lens}, #{focalLength}, #{aperture}," +
+            " #{iso}, #{shutter}, #{categoryId}, #{authorId})")
+    void insert(Photo work);
 
     void delete(Work work);
 }

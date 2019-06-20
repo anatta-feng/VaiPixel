@@ -1,7 +1,7 @@
 package com.emrys.vaipixel.db.model;
 
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class Photo {
@@ -16,10 +16,10 @@ public class Photo {
     private String description;
 
     //创建时间
-    private Date createTime;
+    private Timestamp createTime;
 
     //更新时间
-    private Date updateTime;
+    private Timestamp updateTime;
 
     //图片宽度/视频宽度
     private long width;
@@ -91,19 +91,19 @@ public class Photo {
         this.description = description;
     }
 
-    public Date getCreateTime() {
-        return this.createTime;
+    public long getCreateTime() {
+        return this.createTime.getTime();
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public Timestamp getUpdateTime() {
         return this.updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Timestamp updateTime) {
         this.updateTime = updateTime;
     }
 
@@ -249,5 +249,34 @@ public class Photo {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Photo{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", width=" + width +
+                ", height=" + height +
+                ", rowUrl='" + rowUrl + '\'' +
+                ", fullUrl='" + fullUrl + '\'' +
+                ", regularUrl='" + regularUrl + '\'' +
+                ", smallUrl='" + smallUrl + '\'' +
+                ", thumbUrl='" + thumbUrl + '\'' +
+                ", camera='" + camera + '\'' +
+                ", lens='" + lens + '\'' +
+                ", focalLength=" + focalLength +
+                ", aperture=" + aperture +
+                ", iso=" + iso +
+                ", shutter='" + shutter + '\'' +
+                ", categoryId=" + categoryId +
+                ", category=" + category +
+                ", tags=" + tags +
+                ", authorId=" + authorId +
+                ", user=" + user +
+                '}';
     }
 }

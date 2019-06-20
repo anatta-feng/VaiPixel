@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 20/06/2019 14:20:20
+ Date: 20/06/2019 23:39:16
 */
 
 SET NAMES utf8mb4;
@@ -35,8 +35,8 @@ CREATE TABLE `photo` (
   `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '作品描述',
-  `create_time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
-  `update_time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6) COMMENT '更新时间',
+  `create_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
+  `update_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6) COMMENT '更新时间',
   `width` int(11) DEFAULT NULL COMMENT '图片宽度/视频宽度',
   `height` int(11) DEFAULT NULL COMMENT '图片高度/视频高度',
   `row_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -121,8 +121,8 @@ CREATE TABLE `video` (
   `id` int(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '',
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '作品描述',
-  `create_time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
-  `update_time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6) COMMENT '更新时间',
+  `create_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
+  `update_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6) COMMENT '更新时间',
   `width` int(11) DEFAULT NULL COMMENT '图片宽度/视频宽度',
   `height` int(11) DEFAULT NULL COMMENT '图片高度/视频高度',
   `row_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,

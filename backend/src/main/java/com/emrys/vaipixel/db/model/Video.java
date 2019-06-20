@@ -2,6 +2,7 @@ package com.emrys.vaipixel.db.model;
 
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 public class Video {
@@ -16,10 +17,10 @@ public class Video {
     private String description;
 
     //创建时间
-    private Date createTime;
+    private Timestamp createTime;
 
     //更新时间
-    private Date updateTime;
+    private Timestamp updateTime;
 
     //图片宽度/视频宽度
     private long width;
@@ -84,19 +85,19 @@ public class Video {
         this.description = description;
     }
 
-    public Date getCreateTime() {
-        return this.createTime;
+    public long getCreateTime() {
+        return this.createTime.getTime();
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
-        return this.updateTime;
+    public long getUpdateTime() {
+        return this.updateTime.getTime();
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Timestamp updateTime) {
         this.updateTime = updateTime;
     }
 

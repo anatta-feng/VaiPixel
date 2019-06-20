@@ -4,14 +4,14 @@ import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 
 public class Work {
     private long id;
+    private String title;
+    private String description;
     private long createdTime;
     private long updatedTime;
     private int width;
     private int height;
     private WorkTypeEnum type;
 
-    private String title;
-    private String description;
 
     private Image image;
 

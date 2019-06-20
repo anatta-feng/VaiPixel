@@ -1,22 +1,25 @@
 package com.emrys.vaipixel.controller;
 
+import com.emrys.vaipixel.db.mapper.PhotoMapper;
 import com.emrys.vaipixel.db.model.Category;
+import com.emrys.vaipixel.db.model.Photo;
 import com.emrys.vaipixel.db.model.Tag;
-import com.emrys.vaipixel.db.model.Work;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class WorksController {
 
+    @Autowired
+    private PhotoMapper photoMapper;
+
     @RequestMapping("/works")
-    public List<Work> works() {
-        ArrayList<Work> objects = new ArrayList<>();
-        objects.add(new Work());
-        return objects;
+    public List<Photo> works() {
+
+        return photoMapper.getAll();
     }
 
     @RequestMapping("/categories")

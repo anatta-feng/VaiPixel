@@ -65,4 +65,12 @@ public class CameraParameter {
     public void setIso(int iso) {
         this.iso = iso;
     }
+
+    public String getShutter() {
+        return shutter;
+    }
+
+    public void setShutter(String shutter) {
+        this.shutter = shutter;
+    }
 }

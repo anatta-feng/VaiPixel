@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface UserMapper {
 
-    @Select("SELECT * FROM users")
+    @Select("SELECT id, name, email FROM user")
     List<User> getAll();
 
-    @Insert("INSERT INTO users(name) VALUES(#{name})")
+    @Insert("INSERT INTO user(name, email) VALUES(#{name}, #{email})")
     void insert(User user);
 
     @Delete("DELETE FROM users WHERE id =#{id}")

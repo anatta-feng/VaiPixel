@@ -1,6 +1,6 @@
 package com.emrys.vaipixel.mapper;
 
-import com.emrys.vaipixel.db.mapper.WorkMapper;
+import com.emrys.vaipixel.db.mapper.PhotoMapper;
 import com.emrys.vaipixel.db.model.Work;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class WorkMapperTest {
 
     @Autowired
-    private WorkMapper workMapper;
+    private PhotoMapper workMapper;
 
     @Test
     public void testInsert() {

@@ -16,7 +16,7 @@ public class CameraParameter {
     /**
      * 光圈
      */
-    private String aperture;
+    private int aperture;
     /**
      * iso
      */
@@ -50,11 +50,11 @@ public class CameraParameter {
         this.focalLength = focalLength;
     }
 
-    public String getAperture() {
+    public int getAperture() {
         return aperture;
     }
 
-    public void setAperture(String aperture) {
+    public void setAperture(int aperture) {
         this.aperture = aperture;
     }
 

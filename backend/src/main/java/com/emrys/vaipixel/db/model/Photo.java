@@ -37,23 +37,7 @@ public class Photo {
 
     private String thumbUrl;
 
-    //相机
-    private String camera;
-
-    //镜头
-    private String lens;
-
-    //焦距
-    private long focalLength;
-
-    //光圈
-    private long aperture;
-
-    //iso
-    private long iso;
-
-    //快门时间
-    private String shutter;
+    private CameraParameter cameraParameter;
 
     //分类id
     private long categoryId;
@@ -99,8 +83,8 @@ public class Photo {
         this.createTime = createTime;
     }
 
-    public Timestamp getUpdateTime() {
-        return this.updateTime;
+    public long getUpdateTime() {
+        return this.updateTime.getTime();
     }
 
     public void setUpdateTime(Timestamp updateTime) {
@@ -163,52 +147,12 @@ public class Photo {
         this.thumbUrl = thumbUrl;
     }
 
-    public String getCamera() {
-        return this.camera;
+    public CameraParameter getCameraParameter() {
+        return cameraParameter;
     }
 
-    public void setCamera(String camera) {
-        this.camera = camera;
-    }
-
-    public String getLens() {
-        return this.lens;
-    }
-
-    public void setLens(String lens) {
-        this.lens = lens;
-    }
-
-    public long getFocalLength() {
-        return this.focalLength;
-    }
-
-    public void setFocalLength(long focalLength) {
-        this.focalLength = focalLength;
-    }
-
-    public long getAperture() {
-        return this.aperture;
-    }
-
-    public void setAperture(long aperture) {
-        this.aperture = aperture;
-    }
-
-    public long getIso() {
-        return this.iso;
-    }
-
-    public void setIso(long iso) {
-        this.iso = iso;
-    }
-
-    public String getShutter() {
-        return this.shutter;
-    }
-
-    public void setShutter(String shutter) {
-        this.shutter = shutter;
+    public void setCameraParameter(CameraParameter cameraParameter) {
+        this.cameraParameter = cameraParameter;
     }
 
     public long getCategoryId() {
@@ -266,12 +210,6 @@ public class Photo {
                 ", regularUrl='" + regularUrl + '\'' +
                 ", smallUrl='" + smallUrl + '\'' +
                 ", thumbUrl='" + thumbUrl + '\'' +
-                ", camera='" + camera + '\'' +
-                ", lens='" + lens + '\'' +
-                ", focalLength=" + focalLength +
-                ", aperture=" + aperture +
-                ", iso=" + iso +
-                ", shutter='" + shutter + '\'' +
                 ", categoryId=" + categoryId +
                 ", category=" + category +
                 ", tags=" + tags +

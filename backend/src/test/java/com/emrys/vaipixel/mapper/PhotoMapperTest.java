@@ -1,8 +1,8 @@
 package com.emrys.vaipixel.mapper;
 
 import com.emrys.vaipixel.db.mapper.PhotoMapper;
+import com.emrys.vaipixel.db.model.CameraParameter;
 import com.emrys.vaipixel.db.model.Photo;
-import com.emrys.vaipixel.db.model.Work;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,21 +20,25 @@ public class PhotoMapperTest {
 
     @Test
     public void testInsert() {
-        List<Photo> all = photoMapper.getAll();
-        System.out.println(all);
-
         Photo photo = new Photo();
-        photo.setId(11);
-        photo.setTitle("秋名山");
-        photo.setDescription("五菱宏光");
-        photo.setAperture(14);
-        photo.setCamera("A6400");
-        photo.setLens("50 1.4");
+        photo.setTitle("秋名山1111");
+        photo.setDescription("五菱宏光1111");
+
         photo.setCategoryId(1);
         photo.setAuthorId(1);
         photo.setSmallUrl("232");
-
+        CameraParameter cameraParameter = new CameraParameter();
+        cameraParameter.setAperture(14);
+        cameraParameter.setCamera("A6400");
+        cameraParameter.setLens("50 1.4");
+        photo.setCameraParameter(cameraParameter);
         photoMapper.insert(photo);
+    }
+
+    @Test
+    public void testQuery() {
+        List<Photo> all = photoMapper.getAll();
+        System.out.println(all);
     }
 
 }

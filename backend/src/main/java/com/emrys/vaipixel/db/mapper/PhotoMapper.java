@@ -33,9 +33,11 @@ public interface PhotoMapper {
             "`small_url`, `thumb_url`, `camera`, `lens`, `focal_length`, `aperture`, `iso`, `shutter`, " +
             "`category_id`, `author_id`) " +
             "VALUES (#{id}, #{title}, #{description}, #{width}, #{height}, #{rowUrl}, #{fullUrl}, " +
-            "#{regularUrl}, #{smallUrl}, #{thumbUrl}, #{camera}, #{lens}, #{focalLength}, #{aperture}, " +
-            "#{iso}, #{shutter}, #{categoryId}, #{authorId})")
+            "#{regularUrl}, #{smallUrl}, #{thumbUrl}, #{cameraParameter.camera}, #{cameraParameter.lens}, " +
+            "#{cameraParameter.focalLength}, #{cameraParameter.aperture}, #{cameraParameter.iso}, " +
+            "#{cameraParameter.shutter}, #{categoryId}, #{authorId})")
     void insert(Photo work);
 
     void delete(Work work);
+
 }

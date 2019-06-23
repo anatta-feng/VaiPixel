@@ -1,9 +1,9 @@
-package com.emrys.vaipixel.db1.mapper;
+package com.emrys.vaipixel.db.mapper;
 
-import com.emrys.vaipixel.db1.enums.WorkTypeEnum;
-import com.emrys.vaipixel.db1.model.Photo;
-import com.emrys.vaipixel.db1.model.Video;
-import com.emrys.vaipixel.db1.model.Work;
+import com.emrys.vaipixel.db.enums.WorkTypeEnum;
+import com.emrys.vaipixel.db.model.Photo;
+import com.emrys.vaipixel.db.model.Video;
+import com.emrys.vaipixel.db.model.Work;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

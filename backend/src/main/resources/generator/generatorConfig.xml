@@ -16,7 +16,7 @@
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.emrys.vaipixel.db1.model" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="com.emrys.vaipixel.db.model" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
@@ -25,7 +25,7 @@
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
-        <javaClientGenerator workType="XMLMAPPER" targetPackage="com.emrys.vaipixel.db1.dao"  targetProject="./src/main/java">
+        <javaClientGenerator workType="XMLMAPPER" targetPackage="com.emrys.vaipixel.db.dao" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 

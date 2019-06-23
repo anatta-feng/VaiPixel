@@ -1,45 +1,63 @@
 package com.emrys.vaipixel.db.model;
 
+
 import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 
-public class Work {
-    private long id;
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.List;
+
+public class Work implements Serializable {
+    private long workId;
     private String title;
     private String description;
-    private long createdTime;
-    private long updatedTime;
+    private Timestamp createdTime;
+    private Timestamp updatedTime;
     private int width;
     private int height;
-    private WorkTypeEnum type;
-
-
+    private WorkTypeEnum workType;
     private Image image;
+    private Category category;
+    private List<Tag> tags;
+    private User author;
 
-    private int duration;
-
-    private CameraParameter cameraParameter;
-
-    public long getId() {
-        return id;
+    public long getWorkId() {
+        return workId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setWorkId(long workId) {
+        this.workId = workId;
     }
 
-    public long getCreatedTime() {
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Timestamp getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreatedTime(long createdTime) {
+    public void setCreatedTime(Timestamp createdTime) {
         this.createdTime = createdTime;
     }
 
-    public long getUpdatedTime() {
+    public Timestamp getUpdatedTime() {
         return updatedTime;
     }
 
-    public void setUpdatedTime(long updatedTime) {
+    public void setUpdatedTime(Timestamp updatedTime) {
         this.updatedTime = updatedTime;
     }
 
@@ -59,20 +77,12 @@ public class Work {
         this.height = height;
     }
 
-    public WorkTypeEnum getType() {
-        return type;
+    public WorkTypeEnum getWorkType() {
+        return workType;
     }
 
-    public void setType(WorkTypeEnum type) {
-        this.type = type;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setWorkType(WorkTypeEnum workType) {
+        this.workType = workType;
     }
 
     public Image getImage() {
@@ -83,11 +93,27 @@ public class Work {
         this.image = image;
     }
 
-    public CameraParameter getCameraParameter() {
-        return cameraParameter;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCameraParameter(CameraParameter cameraParameter) {
-        this.cameraParameter = cameraParameter;
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }

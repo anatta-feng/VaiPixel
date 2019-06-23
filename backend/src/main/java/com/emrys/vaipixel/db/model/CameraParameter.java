@@ -1,6 +1,8 @@
 package com.emrys.vaipixel.db.model;
 
-public class CameraParameter {
+import java.io.Serializable;
+
+public class CameraParameter implements Serializable {
     /**
      * 相机
      */

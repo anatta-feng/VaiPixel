@@ -1,34 +1,27 @@
 package com.emrys.vaipixel.db.model;
 
-public class Image {
-    private String rowUrl;
-    private String fullUrl;
-    private String regularUrl;
+import java.io.Serializable;
+
+public class Image implements Serializable {
+    private String largeUrl;
+    private String mediumUrl;
     private String smallUrl;
     private String thumbUrl;
 
-    public String getRowUrl() {
-        return rowUrl;
+    public String getLargeUrl() {
+        return largeUrl;
     }
 
-    public void setRowUrl(String rowUrl) {
-        this.rowUrl = rowUrl;
+    public void setLargeUrl(String largeUrl) {
+        this.largeUrl = largeUrl;
     }
 
-    public String getFullUrl() {
-        return fullUrl;
+    public String getMediumUrl() {
+        return mediumUrl;
     }
 
-    public void setFullUrl(String fullUrl) {
-        this.fullUrl = fullUrl;
-    }
-
-    public String getRegularUrl() {
-        return regularUrl;
-    }
-
-    public void setRegularUrl(String regularUrl) {
-        this.regularUrl = regularUrl;
+    public void setMediumUrl(String mediumUrl) {
+        this.mediumUrl = mediumUrl;
     }
 
     public String getSmallUrl() {

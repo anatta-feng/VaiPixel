@@ -1,10 +1,8 @@
 package com.emrys.vaipixel.mapper;
 
 import com.emrys.vaipixel.db.mapper.PhotoMapper;
-import com.emrys.vaipixel.db.model.CameraParameter;
-import com.emrys.vaipixel.db.model.Photo;
-import com.emrys.vaipixel.db1.mapper.WorkMapper;
-import com.emrys.vaipixel.db1.model.Work;
+import com.emrys.vaipixel.db.mapper.WorkMapper;
+import com.emrys.vaipixel.db.model.Work;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

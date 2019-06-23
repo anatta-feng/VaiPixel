@@ -1,6 +1,24 @@
 package com.emrys.vaipixel.db.model;
 
-public class Category {
-    private long id;
-    private String name;
+import java.io.Serializable;
+
+public class Category implements Serializable {
+    private long categoryId;
+    private String categoryName;
+
+    public long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
 }

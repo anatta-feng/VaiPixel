@@ -7,7 +7,6 @@ import static com.emrys.vaipixel.db.enums.WorkTypeEnum.photo;
 public class Photo extends Work {
     @JsonIgnore
     private long photoId;
-    private long workId;
     private CameraParameter cameraParameter;
 
     public Photo() {
@@ -22,16 +21,6 @@ public class Photo extends Work {
         this.photoId = photoId;
     }
 
-    @Override
-    public long getWorkId() {
-        return workId;
-    }
-
-    @Override
-    public void setWorkId(long workId) {
-        this.workId = workId;
-    }
-
     public CameraParameter getCameraParameter() {
         return cameraParameter;
     }
@@ -44,7 +33,6 @@ public class Photo extends Work {
     public String toString() {
         return "Photo{" +
                 "photoId=" + photoId +
-                ", workId=" + workId +
                 ", cameraParameter=" + cameraParameter +
                 "} " + super.toString();
     }

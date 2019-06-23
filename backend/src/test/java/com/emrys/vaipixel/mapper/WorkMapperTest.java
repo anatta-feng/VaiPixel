@@ -27,7 +27,7 @@ public class WorkMapperTest extends BaseTest {
 
     @Test
     public void testQuery() {
-        List<Work> all = workMapper.getAll();
+        List<Work> all = workMapper.getWorks();
         for (Work work : all) {
             System.out.println(work);
         }
@@ -55,8 +55,12 @@ public class WorkMapperTest extends BaseTest {
         video.setTitle("VideoTest");
         workMapper.insertWork(video);
         videoMapper.insertVideo(video);
+    }
 
-
+    @Test
+    public void testQueryById() {
+        Work work = workMapper.getWorkById(10);
+        System.out.println(work);
     }
 
 }

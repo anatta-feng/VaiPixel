@@ -1,16 +1,28 @@
 package com.emrys.vaipixel.service.works.imp;
 
-import com.emrys.vaipixel.db.model.Work;
+import com.emrys.vaipixel.db.mapper.PhotoMapper;
+import com.emrys.vaipixel.db.mapper.WorkMapper;
+import com.emrys.vaipixel.db.model.Photo;
 import com.emrys.vaipixel.service.works.IWorkEditor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class PhotoEditorImp implements IWorkEditor {
+@Component
+public class PhotoEditorImp implements IWorkEditor<Photo> {
+
+    @Autowired
+    private WorkMapper workMapper;
+
+    @Autowired
+    private PhotoMapper photoMapper;
+
     @Override
-    public void addWork(Work work) {
-
+    public void addWork(Photo work) {
+        workMapper.insertWork(work);
+        photoMapper.insertPhoto(work);
     }
 
     @Override
-    public void updateWork(Work work) {
-
+    public void updateWork(Photo work) {
     }
 }

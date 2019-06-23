@@ -4,6 +4,7 @@ import com.emrys.vaipixel.db.model.Category;
 import com.emrys.vaipixel.db.model.Tag;
 import com.emrys.vaipixel.db.model.Work;
 import com.emrys.vaipixel.service.works.IWorksService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +18,8 @@ public class WorksController {
     private IWorksService worksService;
 
     @RequestMapping("/works")
-    public List<Work> works() {
-        return worksService.getAllWorks();
+    public PageInfo<Work> works() {
+        return worksService.getWorks(0, 1);
     }
 
     @RequestMapping("/categories")

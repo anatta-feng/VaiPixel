@@ -1,6 +1,7 @@
 package com.emrys.vaipixel.service.works;
 
 import com.emrys.vaipixel.db.model.Work;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -23,15 +24,17 @@ public interface IWorksService {
     /**
      * 获取所有的作品
      *
+     * @param pageNum 第几页
+     * @param pageSize 每页多少
      * @return
      */
-    List<Work> getAllWorks();
+    PageInfo<Work> getWorks(int pageNum, int pageSize);
 
     /**
      * 根据某一条件获取作品
      * @return
      */
-    List<Work> getWorkByCond();
+    PageInfo<Work> getWorkByCond();
 
     /**
      * 增加作品点击量
@@ -46,7 +49,7 @@ public interface IWorksService {
      * @param categoryId 分类 id
      * @return 分类下的作品信息
      */
-    List<Work> getWorkInCategory(long categoryId);
+    PageInfo<Work> getWorkInCategory(long categoryId);
 
     /**
      * 获取带有某 tag 的所有作品
@@ -54,7 +57,7 @@ public interface IWorksService {
      * @param tagId tag id
      * @return 带有某一 tag 的作品信息
      */
-    List<Work> getWorkWithTag(long tagId);
+    PageInfo<Work> getWorkWithTag(long tagId);
 
     /**
      * 更新作品

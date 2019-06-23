@@ -1,6 +1,6 @@
 package com.emrys.vaipixel.controller;
 
-import com.emrys.vaipixel.db.model.WrapperPojo;
+import com.emrys.vaipixel.db.model.ApiResponse;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -19,7 +19,7 @@ public class CustomResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        WrapperPojo<Object> pojo = new WrapperPojo<>();
+        ApiResponse<Object> pojo = new ApiResponse<>();
         pojo.setCode(200);
         pojo.setMessage("Success");
         pojo.setData(o);

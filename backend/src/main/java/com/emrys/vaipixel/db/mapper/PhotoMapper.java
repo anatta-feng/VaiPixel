@@ -1,12 +1,11 @@
 package com.emrys.vaipixel.db.mapper;
 
 import com.emrys.vaipixel.db.model.Photo;
-import com.emrys.vaipixel.db.model.Work;
 import org.apache.ibatis.annotations.*;
 
 public interface PhotoMapper {
     @Select("SELECT * FROM t_work AS work INNER JOIN t_photo AS photo ON photo.work_id = work.work_id " +
-            "WHERE photo.work_id = #{work_id}")
+            "WHERE photo.work_id = #{workId}")
     @Results({
             @Result(column = "author_id", property = "author", one = @One(select = "com.emrys.vaipixel.db.mapper.UserMapper.getUserById")),
             @Result(column = "category_id", property = "category", one = @One(select = "com.emrys.vaipixel.db.mapper.CategoryMapper.getCategoryById")),
@@ -24,7 +23,7 @@ public interface PhotoMapper {
             @Result(column = "shutter", property = "cameraParameter.shutter"),
 
     })
-    Photo getPhotoInfoByWorkId(@Param("work_id") long workId);
+    Photo getPhotoInfoByWorkId(long workId);
 
     @Insert("INSERT INTO t_photo(photo_id, work_id, camera, lens, focal_length, aperture, iso, shutter) " +
             "VALUES " +

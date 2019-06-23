@@ -1,6 +1,7 @@
 package com.emrys.vaipixel.db.mapper;
 
 import com.emrys.vaipixel.db.model.Category;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -13,4 +14,7 @@ public interface CategoryMapper {
 
     @Insert("INSERT INTO t_category(category_name) VALUES (#{categoryName})")
     void addCategory(Category category);
+
+    @Delete("DELETE FROM t_category WHERE category_id = #{id}")
+    void deleteCategoryById(long id);
 }

@@ -1,6 +1,7 @@
 package com.emrys.vaipixel.db.mapper;
 
 import com.emrys.vaipixel.db.model.Tag;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -13,4 +14,7 @@ public interface TagMapper {
 
     @Insert("INSERT INTO t_tag(tag_name) VALUES (#{tagName})")
     void addTag(Tag tag);
+
+    @Delete("DELETE FROM t_tag WHERE tag_id = #{id}")
+    void deleteTagById(long id);
 }

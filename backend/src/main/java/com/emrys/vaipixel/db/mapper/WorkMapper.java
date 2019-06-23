@@ -46,6 +46,7 @@ public interface WorkMapper {
             "#{image.smallUrl}, #{image.thumbUrl}, #{category.categoryId}, #{author.userId})")
     void insertWork(Work work);
 
-
+    @Delete("DELETE FROM t_work WHERE work_id = #{id}")
+    void deleteWorkById(long id);
 
 }

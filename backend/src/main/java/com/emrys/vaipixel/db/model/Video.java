@@ -1,9 +1,18 @@
 package com.emrys.vaipixel.db.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import static com.emrys.vaipixel.db.enums.WorkTypeEnum.video;
+
 public class Video extends Work {
+    @JsonIgnore
     private long videoId;
     private String deviceName;
     private String playUrl;
+
+    public Video() {
+        setType(video);
+    }
 
     public long getVideoId() {
         return videoId;

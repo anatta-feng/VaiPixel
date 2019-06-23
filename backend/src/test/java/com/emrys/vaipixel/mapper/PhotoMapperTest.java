@@ -1,32 +1,20 @@
 package com.emrys.vaipixel.mapper;
 
-import com.emrys.vaipixel.db.mapper.UserMapper;
-import com.emrys.vaipixel.db.mapper.WorkMapper;
-import com.emrys.vaipixel.db.model.Work;
+
+import com.emrys.vaipixel.BaseTest;
+import com.emrys.vaipixel.db.mapper.PhotoMapper;
+import com.emrys.vaipixel.db.model.Photo;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class PhotoMapperTest {
+public class PhotoMapperTest extends BaseTest {
 
     @Autowired
-    private WorkMapper workMapper;
-
-    @Autowired
-    private UserMapper userMapper;
+    private PhotoMapper photoMapper;
 
     @Test
     public void testQuery() {
-        List<Work> all = workMapper.getAll();
-        for (Work work : all) {
-            System.out.println(work);
-        }
+        Photo photoInfo = photoMapper.getPhotoInfoByWorkId(1);
+        System.out.println(photoInfo);
     }
-
 }

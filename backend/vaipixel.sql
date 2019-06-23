@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 23/06/2019 14:40:39
+ Date: 23/06/2019 17:49:26
 */
 
 SET NAMES utf8mb4;
@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `t_category`;
 CREATE TABLE `t_category` (
-  `category_id` int(20) unsigned NOT NULL,
+  `category_id` int(20) unsigned NOT NULL AUTO_INCREMENT,
   `category_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`category_id`),
   UNIQUE KEY `category_name` (`category_name`) USING BTREE
@@ -33,7 +33,7 @@ CREATE TABLE `t_category` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_photo`;
 CREATE TABLE `t_photo` (
-  `photo_id` int(20) unsigned NOT NULL COMMENT '主键',
+  `photo_id` int(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
   `work_id` int(20) unsigned NOT NULL,
   `camera` varchar(255) DEFAULT NULL COMMENT '相机',
   `lens` varchar(255) DEFAULT NULL COMMENT '镜头',
@@ -64,11 +64,11 @@ CREATE TABLE `t_relation_work_tag` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_tag`;
 CREATE TABLE `t_tag` (
-  `tag_id` int(20) unsigned NOT NULL,
+  `tag_id` int(20) unsigned NOT NULL AUTO_INCREMENT,
   `tag_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`tag_id`),
   UNIQUE KEY `tag_name` (`tag_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_user
@@ -88,14 +88,14 @@ CREATE TABLE `t_user` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_video`;
 CREATE TABLE `t_video` (
-  `video_id` int(20) unsigned NOT NULL,
+  `video_id` int(20) unsigned NOT NULL AUTO_INCREMENT,
   `work_id` int(20) unsigned NOT NULL,
   `device_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '拍摄设备名称',
   `play_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`video_id`),
   KEY `video_work` (`work_id`),
   CONSTRAINT `video_work` FOREIGN KEY (`work_id`) REFERENCES `t_work` (`work_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_work
@@ -117,9 +117,9 @@ CREATE TABLE `t_work` (
   `category_id` int(20) unsigned DEFAULT NULL COMMENT '分类id',
   `author_id` int(20) unsigned NOT NULL COMMENT '作者id',
   PRIMARY KEY (`work_id`),
-  KEY `work_category` (`category_id`),
   KEY `work_user` (`author_id`),
-  CONSTRAINT `work_category` FOREIGN KEY (`category_id`) REFERENCES `t_category` (`category_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  KEY `work_category` (`category_id`),
+  CONSTRAINT `work_category` FOREIGN KEY (`category_id`) REFERENCES `t_category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `work_user` FOREIGN KEY (`author_id`) REFERENCES `t_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -1,9 +1,18 @@
 package com.emrys.vaipixel.db.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import static com.emrys.vaipixel.db.enums.WorkTypeEnum.photo;
+
 public class Photo extends Work {
+    @JsonIgnore
     private long photoId;
     private long workId;
     private CameraParameter cameraParameter;
+
+    public Photo() {
+        setType(photo);
+    }
 
     public long getPhotoId() {
         return photoId;

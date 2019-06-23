@@ -1,18 +1,14 @@
 package com.emrys.vaipixel.mapper;
 
+import com.emrys.vaipixel.BaseTest;
 import com.emrys.vaipixel.db.mapper.TagMapper;
 import com.emrys.vaipixel.db.model.Tag;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class TagMapperTest {
+public class TagMapperTest extends BaseTest {
 
     @Autowired
     private TagMapper tagMapper;
@@ -21,5 +17,12 @@ public class TagMapperTest {
     public void testQuery() {
         List<Tag> workTags = tagMapper.getWorkTags(1);
         System.out.println(workTags);
+    }
+
+    @Test
+    public void testInsert() {
+        Tag tag = new Tag();
+        tag.setTagName("视频");
+        tagMapper.addTag(tag);
     }
 }

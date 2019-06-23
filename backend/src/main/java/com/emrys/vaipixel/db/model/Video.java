@@ -28,4 +28,13 @@ public class Video extends Work {
     public void setPlayUrl(String playUrl) {
         this.playUrl = playUrl;
     }
+
+    @Override
+    public String toString() {
+        return "Video{" +
+                "videoId=" + videoId +
+                ", deviceName='" + deviceName + '\'' +
+                ", playUrl='" + playUrl + '\'' +
+                "} " + super.toString();
+    }
 }

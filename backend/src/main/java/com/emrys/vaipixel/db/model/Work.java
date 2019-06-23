@@ -15,7 +15,7 @@ public class Work implements Serializable {
     private Timestamp updatedTime;
     private int width;
     private int height;
-    private WorkTypeEnum workType;
+    private WorkTypeEnum type;
     private Image image;
     private Category category;
     private List<Tag> tags;
@@ -45,16 +45,16 @@ public class Work implements Serializable {
         this.description = description;
     }
 
-    public Timestamp getCreatedTime() {
-        return createdTime;
+    public long getCreatedTime() {
+        return createdTime.getTime();
     }
 
     public void setCreatedTime(Timestamp createdTime) {
         this.createdTime = createdTime;
     }
 
-    public Timestamp getUpdatedTime() {
-        return updatedTime;
+    public long getUpdatedTime() {
+        return updatedTime.getTime();
     }
 
     public void setUpdatedTime(Timestamp updatedTime) {
@@ -77,12 +77,12 @@ public class Work implements Serializable {
         this.height = height;
     }
 
-    public WorkTypeEnum getWorkType() {
-        return workType;
+    public WorkTypeEnum getType() {
+        return type;
     }
 
-    public void setWorkType(WorkTypeEnum workType) {
-        this.workType = workType;
+    public void setType(WorkTypeEnum type) {
+        this.type = type;
     }
 
     public Image getImage() {
@@ -115,5 +115,23 @@ public class Work implements Serializable {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Work{" +
+                "workId=" + workId +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", createdTime=" + createdTime +
+                ", updatedTime=" + updatedTime +
+                ", width=" + width +
+                ", height=" + height +
+                ", type=" + type +
+                ", image=" + image +
+                ", category=" + category +
+                ", tags=" + tags +
+                ", author=" + author +
+                '}';
     }
 }

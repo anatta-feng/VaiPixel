@@ -75,4 +75,16 @@ public class CameraParameter implements Serializable {
     public void setShutter(String shutter) {
         this.shutter = shutter;
     }
+
+    @Override
+    public String toString() {
+        return "CameraParameter{" +
+                "camera='" + camera + '\'' +
+                ", lens='" + lens + '\'' +
+                ", focalLength=" + focalLength +
+                ", aperture=" + aperture +
+                ", iso=" + iso +
+                ", shutter='" + shutter + '\'' +
+                '}';
+    }
 }

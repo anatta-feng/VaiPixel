@@ -1,8 +1,7 @@
 package com.emrys.vaipixel.mapper;
 
-import com.emrys.vaipixel.db.mapper.UserMapper;
-import com.emrys.vaipixel.db.mapper.WorkMapper;
-import com.emrys.vaipixel.db.model.Work;
+import com.emrys.vaipixel.db.mapper.TagMapper;
+import com.emrys.vaipixel.db.model.Tag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +12,14 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PhotoMapperTest {
+public class TagMapperTest {
 
     @Autowired
-    private WorkMapper workMapper;
-
-    @Autowired
-    private UserMapper userMapper;
+    private TagMapper tagMapper;
 
     @Test
     public void testQuery() {
-        List<Work> all = workMapper.getAll();
-        for (Work work : all) {
-            System.out.println(work);
-        }
+        List<Tag> workTags = tagMapper.getWorkTags(1);
+        System.out.println(workTags);
     }
-
 }

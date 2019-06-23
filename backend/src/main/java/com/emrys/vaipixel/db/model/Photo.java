@@ -30,4 +30,13 @@ public class Photo extends Work {
     public void setCameraParameter(CameraParameter cameraParameter) {
         this.cameraParameter = cameraParameter;
     }
+
+    @Override
+    public String toString() {
+        return "Photo{" +
+                "photoId=" + photoId +
+                ", workId=" + workId +
+                ", cameraParameter=" + cameraParameter +
+                "} " + super.toString();
+    }
 }

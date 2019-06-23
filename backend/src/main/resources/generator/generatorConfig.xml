@@ -25,7 +25,7 @@
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
-        <javaClientGenerator workType="XMLMAPPER" targetPackage="com.emrys.vaipixel.db.dao" targetProject="./src/main/java">
+        <javaClientGenerator targetPackage="com.emrys.vaipixel.db.dao" targetProject="./src/main/java" type="">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 

@@ -39,4 +39,14 @@ public class Image implements Serializable {
     public void setThumbUrl(String thumbUrl) {
         this.thumbUrl = thumbUrl;
     }
+
+    @Override
+    public String toString() {
+        return "Image{" +
+                "largeUrl='" + largeUrl + '\'' +
+                ", mediumUrl='" + mediumUrl + '\'' +
+                ", smallUrl='" + smallUrl + '\'' +
+                ", thumbUrl='" + thumbUrl + '\'' +
+                '}';
+    }
 }

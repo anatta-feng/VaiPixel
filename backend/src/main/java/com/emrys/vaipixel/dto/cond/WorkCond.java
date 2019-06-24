@@ -4,12 +4,12 @@ import com.emrys.vaipixel.db.enums.WorkStatusEnum;
 import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 
 public class WorkCond {
-    private long categoryId;
+    private Long categoryId;
     private String title;
     private WorkTypeEnum type;
     private WorkStatusEnum status;
-    private long startTime;
-    private long endTime;
+    private Long startTime;
+    private Long endTime;
 
     private WorkCond(Builder builder) {
         categoryId = builder.categoryId;
@@ -20,7 +20,7 @@ public class WorkCond {
         endTime = builder.endTime;
     }
 
-    public long getCategoryId() {
+    public Long getCategoryId() {
         return categoryId;
     }
 
@@ -36,26 +36,26 @@ public class WorkCond {
         return status;
     }
 
-    public long getStartTime() {
+    public Long getStartTime() {
         return startTime;
     }
 
-    public long getEndTime() {
+    public Long getEndTime() {
         return endTime;
     }
 
     public static final class Builder {
-        private long categoryId;
+        private Long categoryId;
         private String title;
         private WorkTypeEnum type;
         private WorkStatusEnum status;
-        private long startTime;
-        private long endTime;
+        private Long startTime;
+        private Long endTime;
 
         public Builder() {
         }
 
-        public Builder withCategoryId(long val) {
+        public Builder withCategoryId(Long val) {
             categoryId = val;
             return this;
         }
@@ -75,12 +75,12 @@ public class WorkCond {
             return this;
         }
 
-        public Builder withStartTime(long val) {
+        public Builder withStartTime(Long val) {
             startTime = val;
             return this;
         }
 
-        public Builder withEndTime(long val) {
+        public Builder withEndTime(Long val) {
             endTime = val;
             return this;
         }

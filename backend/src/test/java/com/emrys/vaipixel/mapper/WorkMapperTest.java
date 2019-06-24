@@ -1,11 +1,13 @@
 package com.emrys.vaipixel.mapper;
 
 import com.emrys.vaipixel.BaseTest;
+import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 import com.emrys.vaipixel.db.mapper.PhotoMapper;
 import com.emrys.vaipixel.db.mapper.UserMapper;
 import com.emrys.vaipixel.db.mapper.VideoMapper;
 import com.emrys.vaipixel.db.mapper.WorkMapper;
 import com.emrys.vaipixel.db.model.*;
+import com.emrys.vaipixel.dto.cond.WorkCond;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -63,4 +65,12 @@ public class WorkMapperTest extends BaseTest {
         System.out.println(work);
     }
 
+    @Test
+    public void testCond() {
+        WorkCond.Builder builder = new WorkCond.Builder();
+        builder.withCategoryId(1L)
+        .withType(WorkTypeEnum.photo);
+        List<Work> worksByCond = workMapper.getWorksByCond(builder.build());
+        System.out.println(worksByCond);
+    }
 }

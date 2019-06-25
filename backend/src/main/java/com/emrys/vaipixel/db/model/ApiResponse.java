@@ -1,7 +1,8 @@
 package com.emrys.vaipixel.db.model;
 
-import static com.emrys.vaipixel.constant.Constant.ErrorCode.FAIL;
-import static com.emrys.vaipixel.constant.Constant.ErrorCode.SUCCESS;
+import com.emrys.vaipixel.constant.Constant;
+
+import static com.emrys.vaipixel.constant.Constant.ErrorStatus.SUCCESS;
 
 public class ApiResponse<T> {
     private int code;
@@ -11,18 +12,23 @@ public class ApiResponse<T> {
     public ApiResponse() {
     }
 
-    public ApiResponse(int code) {
-        this.code = code;
+    public ApiResponse(Constant.ErrorStatus status) {
+        setStatus(status);
     }
 
-    public ApiResponse(int code, T data) {
-        this.code = code;
+    public ApiResponse(Constant.ErrorStatus status, T data) {
+        setStatus(status);
         this.data = data;
     }
 
     public ApiResponse(int code, String message) {
         this.code = code;
         this.message = message;
+    }
+
+    public void setStatus(Constant.ErrorStatus code) {
+        setCode(code.code());
+        setMessage(code.message());
     }
 
     public int getCode() {
@@ -53,11 +59,11 @@ public class ApiResponse<T> {
         return new ApiResponse<>(SUCCESS, data);
     }
 
-    public static ApiResponse fail(String message) {
-        return new ApiResponse(FAIL, message);
+    public static ApiResponse fail(Constant.ErrorStatus status) {
+        return withStatus(status);
     }
 
-    public static ApiResponse withCode(int errorCode) {
-        return new ApiResponse(errorCode);
+    public static ApiResponse withStatus(Constant.ErrorStatus status) {
+        return new ApiResponse(status);
     }
 }

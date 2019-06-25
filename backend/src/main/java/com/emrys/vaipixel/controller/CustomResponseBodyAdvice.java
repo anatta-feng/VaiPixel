@@ -10,6 +10,8 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import static com.emrys.vaipixel.constant.Constant.ErrorStatus.SUCCESS;
+
 @ControllerAdvice
 public class CustomResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     @Override
@@ -20,8 +22,7 @@ public class CustomResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         ApiResponse<Object> pojo = new ApiResponse<>();
-        pojo.setCode(200);
-        pojo.setMessage("Success");
+        pojo.setStatus(SUCCESS);
         pojo.setData(o);
         return pojo;
     }

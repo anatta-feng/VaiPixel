@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.emrys.vaipixel.constant.Constant.ErrorCode.*;
+import static com.emrys.vaipixel.constant.Constant.ErrorStatus.*;
 import static com.emrys.vaipixel.utils.UserUtils.isUserExist;
 import static com.emrys.vaipixel.utils.WorkUtils.isWorkExist;
 
@@ -26,11 +26,11 @@ public class WorksServiceImp implements IWorksService {
     @Override
     public void addWork(Work work) {
         if (work == null) {
-            throw new VaiException(FAIL_REQUEST_PARAM, "Input is null");
+            throw new VaiException(FAIL_REQUEST_PARAM);
         } else if (isWorkExist(work)) {
-            throw new VaiException(FAIL_WORK_ALREADY_EXIST, "Work has already exist");
+            throw new VaiException(FAIL_WORK_ALREADY_EXIST);
         } else if (!isUserExist(work.getAuthor())) {
-            throw new VaiException(FAIL_USER_NOT_EXIST, "User not exist");
+            throw new VaiException(FAIL_USER_NOT_EXIST);
         } else {
             IWorkEditor workEditor = IWorkEditor.processWork(work);
             workEditor.addWork(work);
@@ -40,7 +40,7 @@ public class WorksServiceImp implements IWorksService {
     @Override
     public void deleteWorkById(long workId) {
         if (!isWorkExist(workId)) {
-            throw new VaiException(FAIL_WORK_NOT_EXIST, "Work not exist");
+            throw new VaiException(FAIL_WORK_NOT_EXIST);
         } else {
             workMapper.deleteWorkById(workId);
         }

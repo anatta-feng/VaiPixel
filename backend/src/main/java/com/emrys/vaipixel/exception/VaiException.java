@@ -1,35 +1,31 @@
 package com.emrys.vaipixel.exception;
 
+import com.emrys.vaipixel.constant.Constant;
 import com.emrys.vaipixel.db.model.ApiResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static com.emrys.vaipixel.constant.Constant.ErrorCode.FAIL;
+import static com.emrys.vaipixel.constant.Constant.ErrorStatus.FAIL;
 
 
 public class VaiException extends RuntimeException {
     private static final Logger LOGGER = LoggerFactory.getLogger(VaiException.class);
     protected int errorCode;
-    protected String[] errorMessageArguments;
+    protected String errorMessageArguments;
     private ApiResponse apiResponse;
 
     public VaiException() {
-        this("");
+        this(FAIL);
     }
 
-    public VaiException(String message) {
-        this(message, null);
+    public VaiException(Constant.ErrorStatus status) {
+        this(status, null);
     }
 
-    public VaiException(int errorCode, String errorMessageArguments) {
-        this.errorCode = errorCode;
-        this.errorMessageArguments = new String[]{errorMessageArguments};
-    }
-
-    public VaiException(String message, Throwable cause) {
-        super(message, cause);
-        this.errorCode = FAIL;
-        this.errorMessageArguments = new String[0];
+    public VaiException(Constant.ErrorStatus status, Throwable cause) {
+        super(status.message(), cause);
+        this.errorCode = FAIL.code();
+        this.errorMessageArguments = FAIL.message();
     }
 
     public int getErrorCode() {
@@ -40,11 +36,11 @@ public class VaiException extends RuntimeException {
         this.errorCode = errorCode;
     }
 
-    public String[] getErrorMessageArguments() {
+    public String getErrorMessageArguments() {
         return errorMessageArguments;
     }
 
-    public void setErrorMessageArguments(String[] errorMessageArguments) {
+    public void setErrorMessageArguments(String errorMessageArguments) {
         this.errorMessageArguments = errorMessageArguments;
     }
 
@@ -65,7 +61,7 @@ public class VaiException extends RuntimeException {
     public static VaiException fromApiResponse(ApiResponse response) {
         VaiException exception = new VaiException();
         if (response == null) {
-            response = ApiResponse.fail("NULL");
+            response = ApiResponse.fail(FAIL);
         }
         exception.setApiResponse(response);
         return exception;

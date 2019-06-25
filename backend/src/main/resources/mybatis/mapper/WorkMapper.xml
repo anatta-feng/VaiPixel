@@ -31,6 +31,7 @@
             <case value="video" resultMap="VideoResultMap"/>
         </discriminator>
     </resultMap>
+
     <sql id="BASE_TABLE">
         t_work
     </sql>
@@ -44,6 +45,7 @@
         work.work_id, title, description, created_time, updated_time, width, height, type, large_url, medium_url, small_url,
         thumb_url, category_id, author_id
     </sql>
+
     <select id="getWorksByCond" resultMap="WorkResultMap"
             parameterType="com.emrys.vaipixel.dto.cond.WorkCond">
         SELECT

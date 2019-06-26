@@ -15,6 +15,9 @@ public interface CategoryMapper {
     @Select("SELECT * FROM t_category WHERE category_id = #{id}")
     Category getCategoryById(long id);
 
+    @Select("SELECT * FROM t_category WHERE category_name = #{name}")
+    Category getCategoryByName(String name);
+
     @Insert("INSERT INTO t_category(category_name) VALUES (#{categoryName})")
     void addCategory(Category category);
 

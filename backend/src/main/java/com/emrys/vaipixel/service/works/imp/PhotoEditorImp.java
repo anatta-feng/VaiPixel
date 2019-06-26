@@ -1,5 +1,6 @@
 package com.emrys.vaipixel.service.works.imp;
 
+import com.emrys.vaipixel.db.dao.work.IWorkDao;
 import com.emrys.vaipixel.db.mapper.PhotoMapper;
 import com.emrys.vaipixel.db.mapper.WorkMapper;
 import com.emrys.vaipixel.db.model.Photo;
@@ -11,15 +12,11 @@ import org.springframework.stereotype.Component;
 public class PhotoEditorImp implements IWorkEditor<Photo> {
 
     @Autowired
-    private WorkMapper workMapper;
-
-    @Autowired
-    private PhotoMapper photoMapper;
+    private IWorkDao workDao;
 
     @Override
     public void addWork(Photo work) {
-        workMapper.insertWork(work);
-        photoMapper.insertPhoto(work);
+        workDao.addPhotoWork(work);
     }
 
     @Override

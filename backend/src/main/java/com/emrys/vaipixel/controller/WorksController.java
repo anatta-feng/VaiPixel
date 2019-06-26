@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class WorksController {
+public class WorksController extends BaseController {
 
     @Autowired
     private IWorksService worksService;

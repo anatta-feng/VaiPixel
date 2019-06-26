@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class User implements Serializable {
     private long userId;
     private String userName;
+    private String nickName;
+    private String avatarUrl;
     private String email;
     private String password;
 
@@ -22,6 +24,22 @@ public class User implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public String getEmail() {
@@ -45,6 +63,8 @@ public class User implements Serializable {
         return "User{" +
                 "userId=" + userId +
                 ", userName='" + userName + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", avatarUrl='" + avatarUrl + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';

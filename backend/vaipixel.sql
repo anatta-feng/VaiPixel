@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 23/06/2019 17:49:26
+ Date: 26/06/2019 23:03:29
 */
 
 SET NAMES utf8mb4;
@@ -26,7 +26,7 @@ CREATE TABLE `t_category` (
   `category_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`category_id`),
   UNIQUE KEY `category_name` (`category_name`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_photo
@@ -44,7 +44,7 @@ CREATE TABLE `t_photo` (
   PRIMARY KEY (`photo_id`),
   KEY `photo_work` (`work_id`),
   CONSTRAINT `photo_work` FOREIGN KEY (`work_id`) REFERENCES `t_work` (`work_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_relation_work_tag
@@ -77,10 +77,12 @@ DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
   `user_id` int(20) unsigned NOT NULL COMMENT '主键 ',
   `user_name` varchar(32) NOT NULL COMMENT 'UserName',
+  `nick_name` varchar(32) NOT NULL COMMENT '昵称',
   `email` varchar(32) DEFAULT NULL COMMENT 'email',
   `password` varchar(255) NOT NULL COMMENT '密码',
+  `avatar_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`user_id`),
-  UNIQUE KEY `user_name` (`user_name`,`email`)
+  UNIQUE KEY `user_name` (`user_name`,`email`,`nick_name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -95,7 +97,7 @@ CREATE TABLE `t_video` (
   PRIMARY KEY (`video_id`),
   KEY `video_work` (`work_id`),
   CONSTRAINT `video_work` FOREIGN KEY (`work_id`) REFERENCES `t_work` (`work_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_work

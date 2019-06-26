@@ -7,9 +7,10 @@ import com.emrys.vaipixel.service.works.IWorksService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import static com.emrys.vaipixel.constant.Constant.Params.*;
 
 @RestController
 public class WorksController extends BaseController {
@@ -18,18 +19,30 @@ public class WorksController extends BaseController {
     private IWorksService worksService;
 
     @RequestMapping("/works")
-    public PageInfo<Work> works() {
-        return worksService.getWorks(0, 1);
+    public PageInfo<Work> works(
+            @RequestParam(value = KEY_PAGE_NUM, required = false, defaultValue = DEFAULT_PAGE_NUM)
+                    int pageNum,
+            @RequestParam(value = KEY_PAGE_SIZE, required = false, defaultValue = DEFAULT_PAGE_SIZE)
+                    int pageSize) {
+        return worksService.getWorks(pageNum, pageSize);
     }
 
     @RequestMapping("/categories")
-    public List<Category> categories() {
-        return null;
+    public PageInfo<Category> categories(
+            @RequestParam(value = KEY_PAGE_NUM, required = false, defaultValue = DEFAULT_PAGE_NUM)
+                    int pageNum,
+            @RequestParam(value = KEY_PAGE_SIZE, required = false, defaultValue = DEFAULT_PAGE_SIZE)
+                    int pageSize) {
+        return worksService.getCategories(pageNum, pageSize);
     }
 
     @RequestMapping("/tags")
-    public List<Tag> tags() {
-        return null;
+    public PageInfo<Tag> tags(
+            @RequestParam(value = KEY_PAGE_NUM, required = false, defaultValue = DEFAULT_PAGE_NUM)
+                    int pageNum,
+            @RequestParam(value = KEY_PAGE_SIZE, required = false, defaultValue = DEFAULT_PAGE_SIZE)
+                    int pageSize) {
+        return worksService.getTags(pageNum, pageSize);
     }
 
 }

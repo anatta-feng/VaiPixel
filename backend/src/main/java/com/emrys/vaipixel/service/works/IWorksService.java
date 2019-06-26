@@ -1,5 +1,7 @@
 package com.emrys.vaipixel.service.works;
 
+import com.emrys.vaipixel.db.model.Category;
+import com.emrys.vaipixel.db.model.Tag;
 import com.emrys.vaipixel.db.model.Work;
 import com.emrys.vaipixel.dto.cond.WorkCond;
 import com.github.pagehelper.PageInfo;
@@ -58,5 +60,15 @@ public interface IWorksService {
      * @param work 待更新的作品信息
      */
     void updateWork(Work work);
+
+    /**
+     * 获取所有的分类
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageInfo<Category> getCategories(int pageNum, int pageSize);
+
+    PageInfo<Tag> getTags(int pageNum, int pageSize);
 
 }

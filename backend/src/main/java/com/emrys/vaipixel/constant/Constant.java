@@ -2,6 +2,14 @@ package com.emrys.vaipixel.constant;
 
 public class Constant {
 
+    public static class Params {
+        public static final String KEY_PAGE_NUM = "pageNum";
+        public static final String DEFAULT_PAGE_NUM = "0";
+
+        public static final String KEY_PAGE_SIZE = "pageSize";
+        public static final String DEFAULT_PAGE_SIZE = "20";
+    }
+
     public enum ErrorStatus {
         SUCCESS(1000, "SUCCESS"),
 

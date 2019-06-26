@@ -61,7 +61,7 @@ public class WorkMapperTest extends BaseTest {
 
     @Test
     public void testQueryById() {
-        Work work = workMapper.getWorkById(10);
+        Work work = workMapper.getWorkById(1);
         System.out.println(work);
     }
 

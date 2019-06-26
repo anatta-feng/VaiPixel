@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 26/06/2019 23:03:29
+ Date: 26/06/2019 23:07:13
 */
 
 SET NAMES utf8mb4;
@@ -118,6 +118,9 @@ CREATE TABLE `t_work` (
   `thumb_url` varchar(255) DEFAULT NULL,
   `category_id` int(20) unsigned DEFAULT NULL COMMENT '分类id',
   `author_id` int(20) unsigned NOT NULL COMMENT '作者id',
+  `like_count` int(20) NOT NULL DEFAULT '0' COMMENT '点赞数量',
+  `page_view` int(20) NOT NULL DEFAULT '0',
+  `user_view` int(20) NOT NULL,
   PRIMARY KEY (`work_id`),
   KEY `work_user` (`author_id`),
   KEY `work_category` (`category_id`),

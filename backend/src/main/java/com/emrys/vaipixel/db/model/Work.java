@@ -20,6 +20,9 @@ public class Work implements Serializable {
     private Category category;
     private List<Tag> tags;
     private User author;
+    private int likeCount;
+    private int pageView;
+    private int userView;
 
     public long getWorkId() {
         return workId;
@@ -115,6 +118,30 @@ public class Work implements Serializable {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public int getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public int getPageView() {
+        return pageView;
+    }
+
+    public void setPageView(int pageView) {
+        this.pageView = pageView;
+    }
+
+    public int getUserView() {
+        return userView;
+    }
+
+    public void setUserView(int userView) {
+        this.userView = userView;
     }
 
     @Override

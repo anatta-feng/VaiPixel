@@ -18,7 +18,8 @@ public class WorkCond {
         CREATE_TIME("created_time"),
         UPDATE_TIME("updated_time"),
         LIKE("like_count"),
-        CLICK("click"),
+        PAGE_VIEW("page_view"),
+        USER_VIEW("user_view"),
         ;
 
         private String order;

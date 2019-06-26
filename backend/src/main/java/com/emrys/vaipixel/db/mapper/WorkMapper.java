@@ -10,7 +10,7 @@ import java.util.List;
 public interface WorkMapper {
 
     @Select("SELECT work.work_id, title, description, created_time, updated_time, width, height, type, large_url, " +
-            "medium_url, small_url, thumb_url, author_id, category_id " +
+            "medium_url, small_url, thumb_url, author_id, category_id, like_count, page_view, user_view " +
             "FROM t_work AS work " +
             "LEFT JOIN t_photo ON t_photo.work_id = work.work_id " +
             "LEFT JOIN t_video ON t_video.work_id = work.work_id ")
@@ -18,7 +18,7 @@ public interface WorkMapper {
     List<Work> getWorks();
 
     @Select("SELECT work.work_id, title, description, created_time, updated_time, width, height, type, large_url, " +
-            "medium_url, small_url, thumb_url, author_id, category_id " +
+            "medium_url, small_url, thumb_url, author_id, category_id, like_count, page_view, user_view " +
             "FROM t_work AS work " +
             "LEFT JOIN t_photo ON t_photo.work_id = work.work_id " +
             "LEFT JOIN t_video ON t_video.work_id = work.work_id " +

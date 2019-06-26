@@ -43,7 +43,7 @@
     </sql>
     <sql id="BASE_COLUMN">
         work.work_id, title, description, created_time, updated_time, width, height, type, large_url, medium_url, small_url,
-        thumb_url, category_id, author_id
+        thumb_url, category_id, author_id, like_count, page_view, user_view
     </sql>
 
     <select id="getWorksByCond" resultMap="WorkResultMap"

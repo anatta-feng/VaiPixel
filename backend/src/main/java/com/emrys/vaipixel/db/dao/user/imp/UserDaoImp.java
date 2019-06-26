@@ -4,7 +4,9 @@ import com.emrys.vaipixel.db.dao.user.IUserDao;
 import com.emrys.vaipixel.db.mapper.UserMapper;
 import com.emrys.vaipixel.db.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserDaoImp implements IUserDao {
 
     @Autowired

@@ -10,6 +10,27 @@ public class WorkCond {
     private WorkStatusEnum status;
     private Long startTime;
     private Long endTime;
+    private String orderBy;
+    private String sc;
+
+    public enum Order {
+        ID("work_id"),
+        CREATE_TIME("created_time"),
+        UPDATE_TIME("updated_time"),
+        LIKE("like_count"),
+        CLICK("click"),
+        ;
+
+        private String order;
+
+        Order(String order) {
+            this.order = order;
+        }
+    }
+
+    public enum SC {
+        ASC, DESC
+    }
 
     private WorkCond(Builder builder) {
         categoryId = builder.categoryId;
@@ -18,6 +39,8 @@ public class WorkCond {
         status = builder.status;
         startTime = builder.startTime;
         endTime = builder.endTime;
+        orderBy = builder.orderBy.order;
+        sc = builder.sc.name();
     }
 
     public Long getCategoryId() {
@@ -44,6 +67,14 @@ public class WorkCond {
         return endTime;
     }
 
+    public String getOrderBy() {
+        return orderBy;
+    }
+
+    public String getSc() {
+        return sc;
+    }
+
     public static final class Builder {
         private Long categoryId;
         private String title;
@@ -51,6 +82,8 @@ public class WorkCond {
         private WorkStatusEnum status;
         private Long startTime;
         private Long endTime;
+        private Order orderBy;
+        private SC sc;
 
         public Builder() {
         }
@@ -82,6 +115,12 @@ public class WorkCond {
 
         public Builder withEndTime(Long val) {
             endTime = val;
+            return this;
+        }
+
+        public Builder withOrderBy(Order val, SC sc) {
+            orderBy = val;
+            this.sc = sc;
             return this;
         }
 

@@ -83,6 +83,9 @@
             <if test="endTime != null">
                 AND work.created_time &lt;= #{categoryId, jdbcType=Timestamp}
             </if>
+            <if test="orderBy != null &amp;&amp; sc != null">
+                ORDER BY ${orderBy} ${sc}
+            </if>
         </where>
     </select>
 </mapper>

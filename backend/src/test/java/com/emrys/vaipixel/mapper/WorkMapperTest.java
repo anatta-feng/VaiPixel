@@ -68,9 +68,11 @@ public class WorkMapperTest extends BaseTest {
     @Test
     public void testCond() {
         WorkCond.Builder builder = new WorkCond.Builder();
-        builder.withCategoryId(1L)
-        .withType(WorkTypeEnum.photo);
-        List<Work> worksByCond = workMapper.getWorksByCond(builder.build());
+        WorkCond build = builder
+                .withCategoryId(1L)
+                .withOrderBy(WorkCond.Order.ID, WorkCond.SC.ASC)
+                .build();
+        List<Work> worksByCond = workMapper.getWorksByCond(build);
         System.out.println(worksByCond);
     }
 }

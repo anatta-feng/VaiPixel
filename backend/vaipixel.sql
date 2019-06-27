@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 28/06/2019 00:05:22
+ Date: 28/06/2019 00:18:31
 */
 
 SET NAMES utf8mb4;
@@ -26,7 +26,7 @@ CREATE TABLE `t_category` (
   `category_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`category_id`),
   UNIQUE KEY `category_name` (`category_name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_photo
@@ -36,7 +36,7 @@ CREATE TABLE `t_photo` (
   `photo_id` int(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
   `work_id` bigint(20) unsigned NOT NULL,
   `camera_make` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '相机厂商',
-  `cemara_model` varchar(32) DEFAULT NULL COMMENT '相机型号',
+  `camera_model` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '相机型号',
   `lens` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '镜头',
   `focal_length` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '焦距',
   `aperture` varchar(32) DEFAULT NULL COMMENT '光圈',
@@ -45,7 +45,7 @@ CREATE TABLE `t_photo` (
   PRIMARY KEY (`photo_id`),
   KEY `photo_work` (`work_id`),
   CONSTRAINT `photo_work` FOREIGN KEY (`work_id`) REFERENCES `t_work` (`work_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_relation_work_tag
@@ -101,7 +101,7 @@ CREATE TABLE `t_video` (
   PRIMARY KEY (`video_id`),
   KEY `video_work` (`work_id`),
   CONSTRAINT `video_work` FOREIGN KEY (`work_id`) REFERENCES `t_work` (`work_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_work

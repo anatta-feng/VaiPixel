@@ -26,9 +26,9 @@ public interface PhotoMapper {
     })
     Photo getPhotoInfoByWorkId(long workId);
 
-    @Insert("INSERT INTO t_photo(photo_id, work_id, camera, lens, focal_length, aperture, iso, shutter) " +
+    @Insert("INSERT INTO t_photo(photo_id, work_id, camera_make, camera_model, lens, focal_length, aperture, iso, shutter) " +
             "VALUES " +
-            "(#{photoId}, #{workId}, #{cameraParameter.camera}, #{cameraParameter.lens}, #{cameraParameter.focalLength}, " +
+            "(#{photoId}, #{workId}, #{cameraParameter.make}, #{cameraParameter.model}, #{cameraParameter.lens}, #{cameraParameter.focalLength}, " +
             "#{cameraParameter.aperture}, #{cameraParameter.iso}, #{cameraParameter.shutter})")
     void insertPhoto(Photo photo);
 }

@@ -9,6 +9,7 @@ import com.emrys.vaipixel.db.mapper.WorkMapper;
 import com.emrys.vaipixel.db.model.*;
 import com.emrys.vaipixel.dto.cond.WorkCond;
 import com.emrys.vaipixel.utils.SnowflakeIdWorker;
+import net.bytebuddy.utility.RandomString;
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,10 @@ public class WorkMapperTest extends BaseTest {
         photo.setCategory(category);
         photo.setAuthor(user);
         photo.setTitle("PhotoTest");
+        CameraParameter cameraParameter = new CameraParameter();
+        cameraParameter.setAperture(RandomString.make(5));
+        cameraParameter.setMake(RandomString.make(5));
+        photo.setCameraParameter(cameraParameter);
         workMapper.insertWork(photo);
         photoMapper.insertPhoto(photo);
 
@@ -66,7 +71,7 @@ public class WorkMapperTest extends BaseTest {
 
     @Test
     public void testQueryById() {
-        Work work = workMapper.getWorkById(1);
+        Work work = workMapper.getWorkById(367426281803776L);
         System.out.println(work);
     }
 

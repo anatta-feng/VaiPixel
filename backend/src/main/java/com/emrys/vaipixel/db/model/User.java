@@ -1,6 +1,7 @@
 package com.emrys.vaipixel.db.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class User implements Serializable {
     private long userId;
@@ -9,6 +10,8 @@ public class User implements Serializable {
     private String avatarUrl;
     private String email;
     private String password;
+    private Timestamp joinTime;
+    private Timestamp lastSeenTime;
 
     public long getUserId() {
         return userId;
@@ -56,6 +59,22 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public long getJoinTime() {
+        return joinTime.getTime();
+    }
+
+    public void setJoinTime(Timestamp joinTime) {
+        this.joinTime = joinTime;
+    }
+
+    public long getLastSeenTime() {
+        return lastSeenTime.getTime();
+    }
+
+    public void setLastSeenTime(Timestamp lastSeenTime) {
+        this.lastSeenTime = lastSeenTime;
     }
 
     @Override

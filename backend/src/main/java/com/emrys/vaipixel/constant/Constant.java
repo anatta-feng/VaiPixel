@@ -4,7 +4,7 @@ public class Constant {
 
     public static class Params {
         public static final String KEY_PAGE_NUM = "pageNum";
-        public static final String DEFAULT_PAGE_NUM = "0";
+        public static final String DEFAULT_PAGE_NUM = "1";
 
         public static final String KEY_PAGE_SIZE = "pageSize";
         public static final String DEFAULT_PAGE_SIZE = "20";

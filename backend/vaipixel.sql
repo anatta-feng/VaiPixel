@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 26/06/2019 23:07:13
+ Date: 27/06/2019 12:48:30
 */
 
 SET NAMES utf8mb4;
@@ -81,6 +81,8 @@ CREATE TABLE `t_user` (
   `email` varchar(32) DEFAULT NULL COMMENT 'email',
   `password` varchar(255) NOT NULL COMMENT '密码',
   `avatar_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `join_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  `last_seen_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_name` (`user_name`,`email`,`nick_name`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

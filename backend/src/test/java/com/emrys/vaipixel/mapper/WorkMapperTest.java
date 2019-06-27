@@ -8,6 +8,7 @@ import com.emrys.vaipixel.db.mapper.VideoMapper;
 import com.emrys.vaipixel.db.mapper.WorkMapper;
 import com.emrys.vaipixel.db.model.*;
 import com.emrys.vaipixel.dto.cond.WorkCond;
+import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -38,7 +39,7 @@ public class WorkMapperTest extends BaseTest {
     @Test
     public void testInsert() {
         Photo photo = new Photo();
-        photo.setWorkId(1);
+        photo.setWorkId(RandomUtils.nextInt(1, 100000));
         Category category = new Category();
         category.setCategoryId(1);
         User user = new User();
@@ -51,7 +52,7 @@ public class WorkMapperTest extends BaseTest {
 
 
         Video video = new Video();
-        video.setWorkId(2);
+        video.setWorkId(RandomUtils.nextInt(1, 100000));
         video.setCategory(category);
         video.setAuthor(user);
         video.setTitle("VideoTest");

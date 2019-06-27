@@ -6,17 +6,15 @@ import com.emrys.vaipixel.db.model.Work;
 import com.emrys.vaipixel.service.works.IWorksService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import static com.emrys.vaipixel.constant.Constant.Params.*;
 import static com.emrys.vaipixel.db.enums.WorkTypeEnum.photo;
 import static com.emrys.vaipixel.db.enums.WorkTypeEnum.video;
 
 @RestController
-public class WorksController extends BaseController {
+public class WorksController extends BaseV1Controller {
 
     private IWorksService worksService;
 
@@ -42,6 +40,18 @@ public class WorksController extends BaseController {
     @RequestMapping("/video/{workId}")
     public Work videoDetail(@PathVariable long workId) {
         return worksService.getWorkDetail(workId, video);
+    }
+
+    @RequestMapping(value = "/work/upload/file", method = RequestMethod.POST)
+    @ResponseBody
+    public String uploadWork(@RequestParam("file") MultipartFile file) {
+        return file.getOriginalFilename();
+    }
+
+    @RequestMapping(value = "/work/upload", method = RequestMethod.POST)
+    @ResponseBody
+    public String submitWork() {
+        return "";
     }
 
     @RequestMapping("/categories")

@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 27/06/2019 12:48:30
+ Date: 27/06/2019 17:50:17
 */
 
 SET NAMES utf8mb4;
@@ -26,7 +26,7 @@ CREATE TABLE `t_category` (
   `category_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`category_id`),
   UNIQUE KEY `category_name` (`category_name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_photo
@@ -44,7 +44,7 @@ CREATE TABLE `t_photo` (
   PRIMARY KEY (`photo_id`),
   KEY `photo_work` (`work_id`),
   CONSTRAINT `photo_work` FOREIGN KEY (`work_id`) REFERENCES `t_work` (`work_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_relation_work_tag
@@ -68,7 +68,7 @@ CREATE TABLE `t_tag` (
   `tag_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`tag_id`),
   UNIQUE KEY `tag_name` (`tag_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_user
@@ -122,7 +122,7 @@ CREATE TABLE `t_work` (
   `author_id` int(20) unsigned NOT NULL COMMENT '作者id',
   `like_count` int(20) NOT NULL DEFAULT '0' COMMENT '点赞数量',
   `page_view` int(20) NOT NULL DEFAULT '0',
-  `user_view` int(20) NOT NULL,
+  `user_view` int(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`work_id`),
   KEY `work_user` (`author_id`),
   KEY `work_category` (`category_id`),

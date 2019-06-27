@@ -8,6 +8,7 @@ import com.emrys.vaipixel.db.mapper.VideoMapper;
 import com.emrys.vaipixel.db.mapper.WorkMapper;
 import com.emrys.vaipixel.db.model.*;
 import com.emrys.vaipixel.dto.cond.WorkCond;
+import com.emrys.vaipixel.utils.SnowflakeIdWorker;
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class WorkMapperTest extends BaseTest {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private SnowflakeIdWorker idWorker;
+
     @Test
     public void testQuery() {
         List<Work> all = workMapper.getWorks();
@@ -39,7 +43,7 @@ public class WorkMapperTest extends BaseTest {
     @Test
     public void testInsert() {
         Photo photo = new Photo();
-        photo.setWorkId(RandomUtils.nextInt(1, 100000));
+        photo.setWorkId(idWorker.nextId());
         Category category = new Category();
         category.setCategoryId(1);
         User user = new User();
@@ -52,7 +56,7 @@ public class WorkMapperTest extends BaseTest {
 
 
         Video video = new Video();
-        video.setWorkId(RandomUtils.nextInt(1, 100000));
+        video.setWorkId(idWorker.nextId());
         video.setCategory(category);
         video.setAuthor(user);
         video.setTitle("VideoTest");

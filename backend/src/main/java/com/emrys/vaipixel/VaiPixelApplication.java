@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.emrys.vaipixel.db.mapper")
-public class PhotographApplication {
+public class VaiPixelApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PhotographApplication.class, args);
+		SpringApplication.run(VaiPixelApplication.class, args);
 	}
 
 }

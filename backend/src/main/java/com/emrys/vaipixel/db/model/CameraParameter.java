@@ -4,9 +4,13 @@ import java.io.Serializable;
 
 public class CameraParameter implements Serializable {
     /**
-     * 相机
+     * 相机厂商
      */
-    private String camera;
+    private String make;
+    /**
+     * 相机型号
+     */
+    private String model;
     /**
      * 镜头
      */
@@ -14,26 +18,34 @@ public class CameraParameter implements Serializable {
     /**
      * 焦距
      */
-    private int focalLength;
+    private String focalLength;
     /**
      * 光圈
      */
-    private int aperture;
+    private String aperture;
     /**
      * iso
      */
-    private int iso;
+    private String iso;
     /**
      * 快门时间
      */
     private String shutter;
 
-    public String getCamera() {
-        return camera;
+    public String getMake() {
+        return make;
     }
 
-    public void setCamera(String camera) {
-        this.camera = camera;
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public String getLens() {
@@ -44,27 +56,27 @@ public class CameraParameter implements Serializable {
         this.lens = lens;
     }
 
-    public int getFocalLength() {
+    public String getFocalLength() {
         return focalLength;
     }
 
-    public void setFocalLength(int focalLength) {
+    public void setFocalLength(String focalLength) {
         this.focalLength = focalLength;
     }
 
-    public int getAperture() {
+    public String getAperture() {
         return aperture;
     }
 
-    public void setAperture(int aperture) {
+    public void setAperture(String aperture) {
         this.aperture = aperture;
     }
 
-    public int getIso() {
+    public String getIso() {
         return iso;
     }
 
-    public void setIso(int iso) {
+    public void setIso(String iso) {
         this.iso = iso;
     }
 
@@ -79,7 +91,7 @@ public class CameraParameter implements Serializable {
     @Override
     public String toString() {
         return "CameraParameter{" +
-                "camera='" + camera + '\'' +
+                "make='" + make + '\'' +
                 ", lens='" + lens + '\'' +
                 ", focalLength=" + focalLength +
                 ", aperture=" + aperture +

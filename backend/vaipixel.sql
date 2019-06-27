@@ -11,7 +11,7 @@
  Target Server Version : 80016
  File Encoding         : 65001
 
- Date: 27/06/2019 17:50:17
+ Date: 28/06/2019 00:05:22
 */
 
 SET NAMES utf8mb4;
@@ -26,7 +26,7 @@ CREATE TABLE `t_category` (
   `category_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`category_id`),
   UNIQUE KEY `category_name` (`category_name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_photo
@@ -34,27 +34,29 @@ CREATE TABLE `t_category` (
 DROP TABLE IF EXISTS `t_photo`;
 CREATE TABLE `t_photo` (
   `photo_id` int(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `work_id` int(20) unsigned NOT NULL,
-  `camera` varchar(255) DEFAULT NULL COMMENT '相机',
-  `lens` varchar(255) DEFAULT NULL COMMENT '镜头',
-  `focal_length` int(11) DEFAULT NULL COMMENT '焦距',
-  `aperture` int(255) DEFAULT NULL COMMENT '光圈',
-  `iso` int(255) DEFAULT NULL COMMENT 'ISO',
-  `shutter` varchar(255) DEFAULT NULL COMMENT '快门时间',
+  `work_id` bigint(20) unsigned NOT NULL,
+  `camera_make` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '相机厂商',
+  `cemara_model` varchar(32) DEFAULT NULL COMMENT '相机型号',
+  `lens` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '镜头',
+  `focal_length` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '焦距',
+  `aperture` varchar(32) DEFAULT NULL COMMENT '光圈',
+  `iso` varchar(32) DEFAULT NULL COMMENT 'ISO',
+  `shutter` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '快门时间',
   PRIMARY KEY (`photo_id`),
   KEY `photo_work` (`work_id`),
   CONSTRAINT `photo_work` FOREIGN KEY (`work_id`) REFERENCES `t_work` (`work_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_relation_work_tag
 -- ----------------------------
 DROP TABLE IF EXISTS `t_relation_work_tag`;
 CREATE TABLE `t_relation_work_tag` (
-  `work_id` int(20) unsigned NOT NULL,
   `tag_id` int(20) unsigned NOT NULL,
-  PRIMARY KEY (`work_id`,`tag_id`),
+  `work_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`tag_id`,`work_id`) USING BTREE,
   KEY `relation_tag` (`tag_id`),
+  KEY `relation_work` (`work_id`),
   CONSTRAINT `relation_tag` FOREIGN KEY (`tag_id`) REFERENCES `t_tag` (`tag_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `relation_work` FOREIGN KEY (`work_id`) REFERENCES `t_work` (`work_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -68,7 +70,7 @@ CREATE TABLE `t_tag` (
   `tag_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`tag_id`),
   UNIQUE KEY `tag_name` (`tag_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_user
@@ -93,20 +95,20 @@ CREATE TABLE `t_user` (
 DROP TABLE IF EXISTS `t_video`;
 CREATE TABLE `t_video` (
   `video_id` int(20) unsigned NOT NULL AUTO_INCREMENT,
-  `work_id` int(20) unsigned NOT NULL,
+  `work_id` bigint(20) unsigned NOT NULL,
   `device_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '拍摄设备名称',
   `play_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`video_id`),
   KEY `video_work` (`work_id`),
   CONSTRAINT `video_work` FOREIGN KEY (`work_id`) REFERENCES `t_work` (`work_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for t_work
 -- ----------------------------
 DROP TABLE IF EXISTS `t_work`;
 CREATE TABLE `t_work` (
-  `work_id` int(20) unsigned NOT NULL COMMENT 'workId and 主键',
+  `work_id` bigint(20) unsigned NOT NULL COMMENT 'workId and 主键',
   `title` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT '' COMMENT '作品标题',
   `description` varchar(255) DEFAULT '' COMMENT '作品描述',
   `created_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',

@@ -11,6 +11,7 @@ import com.emrys.vaipixel.db.model.Work;
 import com.emrys.vaipixel.exception.VaiException;
 import com.emrys.vaipixel.service.works.IWorkEditor;
 import com.emrys.vaipixel.service.works.IWorksService;
+import com.emrys.vaipixel.utils.SnowflakeIdWorker;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,8 @@ public class WorksServiceImp implements IWorksService {
     private ITagDao tagDao;
 
     private IUserDao userDao;
+
+    private SnowflakeIdWorker idWorker;
 
     public void setWorkDao(IWorkDao workDao) {
         this.workDao = workDao;
@@ -47,6 +50,11 @@ public class WorksServiceImp implements IWorksService {
         this.userDao = userDao;
     }
 
+    @Autowired
+    public void setIdWorker(SnowflakeIdWorker idWorker) {
+        this.idWorker = idWorker;
+    }
+
     @SuppressWarnings("unchecked")
     @Override
     public void addWork(Work work) {
@@ -63,6 +71,7 @@ public class WorksServiceImp implements IWorksService {
                     tagDao.addTagIfNotExist(tag);
                 }
             }
+            work.setWorkId(idWorker.nextId());
             IWorkEditor workEditor = IWorkEditor.processWork(work);
             workEditor.addWork(work);
         }

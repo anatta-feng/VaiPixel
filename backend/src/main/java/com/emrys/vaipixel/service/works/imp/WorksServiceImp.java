@@ -10,7 +10,6 @@ import com.emrys.vaipixel.db.model.Work;
 import com.emrys.vaipixel.exception.VaiException;
 import com.emrys.vaipixel.service.works.IWorkEditor;
 import com.emrys.vaipixel.service.works.IWorksService;
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,6 +64,11 @@ public class WorksServiceImp implements IWorksService {
     @Override
     public PageInfo<Work> getWorks(int pageNum, int pageSize) {
         return workDao.getWorks(pageNum, pageSize);
+    }
+
+    @Override
+    public Work getWorkDetail(long workId) {
+        return workDao.getWorkById(workId);
     }
 
     @Override

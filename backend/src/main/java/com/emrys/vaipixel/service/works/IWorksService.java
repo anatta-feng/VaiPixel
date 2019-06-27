@@ -32,6 +32,13 @@ public interface IWorksService {
     PageInfo<Work> getWorks(int pageNum, int pageSize);
 
     /**
+     * 获取作品详情
+     * @param workId workId
+     * @return work
+     */
+    Work getWorkDetail(long workId);
+
+    /**
      * 增加作品点击量
      *
      * @param workId 作品 id

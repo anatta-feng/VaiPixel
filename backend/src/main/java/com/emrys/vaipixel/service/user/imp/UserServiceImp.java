@@ -7,8 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserServiceImp implements IUserService {
 
-    @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    public UserServiceImp(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
 
     @Override
     public User login(String userName, String password) {

@@ -9,8 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class VideoEditorImp implements IWorkEditor<Video> {
 
-    @Autowired
     private IWorkDao workDao;
+
+    @Autowired
+    public void setWorkDao(IWorkDao workDao) {
+        this.workDao = workDao;
+    }
 
     @Override
     public void addWork(Video work) {

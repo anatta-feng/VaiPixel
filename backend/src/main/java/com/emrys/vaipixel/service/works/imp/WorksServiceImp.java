@@ -20,17 +20,32 @@ import static com.emrys.vaipixel.constant.Constant.ErrorStatus.*;
 @Service
 public class WorksServiceImp implements IWorksService {
 
-    @Autowired
     private IWorkDao workDao;
 
-    @Autowired
     private ICategoryDao categoryDao;
 
-    @Autowired
     private ITagDao tagDao;
 
-    @Autowired
     private IUserDao userDao;
+
+    public void setWorkDao(IWorkDao workDao) {
+        this.workDao = workDao;
+    }
+
+    @Autowired
+    public void setCategoryDao(ICategoryDao categoryDao) {
+        this.categoryDao = categoryDao;
+    }
+
+    @Autowired
+    public void setTagDao(ITagDao tagDao) {
+        this.tagDao = tagDao;
+    }
+
+    @Autowired
+    public void setUserDao(IUserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @SuppressWarnings("unchecked")
     @Override

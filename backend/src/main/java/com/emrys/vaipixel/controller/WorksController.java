@@ -18,8 +18,12 @@ import static com.emrys.vaipixel.db.enums.WorkTypeEnum.video;
 @RestController
 public class WorksController extends BaseController {
 
-    @Autowired
     private IWorksService worksService;
+
+    @Autowired
+    public WorksController(IWorksService worksService) {
+        this.worksService = worksService;
+    }
 
     @RequestMapping("/works")
     public PageInfo<Work> works(

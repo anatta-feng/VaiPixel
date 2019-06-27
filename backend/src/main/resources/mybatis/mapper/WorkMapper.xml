@@ -2,17 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.emrys.vaipixel.db.mapper.WorkMapper">
 
-    <resultMap id="PhotoResultMap" type="com.emrys.vaipixel.db.model.Photo">
-        <id column="photo_id" property="photoId"/>
-        <result column="camera" property="cameraParameter.camera"/>
-        <result column="lens" property="cameraParameter.lens"/>
-        <result column="focal_length" property="cameraParameter.focalLength"/>
-        <result column="aperture" property="cameraParameter.aperture"/>
-        <result column="iso" property="cameraParameter.iso"/>
-        <result column="shutter" property="cameraParameter.shutter"/>
-    </resultMap>
-
-    <resultMap id="VideoResultMap" type="com.emrys.vaipixel.db.model.Video"/>
 
     <resultMap id="WorkResultMap" type="com.emrys.vaipixel.db.model.Work">
         <id column="work_id" property="workId"/>
@@ -27,8 +16,16 @@
         <collection property="tags" column="work_id"
         select="com.emrys.vaipixel.db.mapper.TagMapper.getWorkTags"/>
         <discriminator javaType="com.emrys.vaipixel.db.enums.WorkTypeEnum" column="type">
-            <case value="photo" resultMap="PhotoResultMap"/>
-            <case value="video" resultMap="VideoResultMap"/>
+            <case value="photo" resultType="com.emrys.vaipixel.db.model.Photo">
+                <id column="photo_id" property="photoId"/>
+                <result column="camera" property="cameraParameter.camera"/>
+                <result column="lens" property="cameraParameter.lens"/>
+                <result column="focal_length" property="cameraParameter.focalLength"/>
+                <result column="aperture" property="cameraParameter.aperture"/>
+                <result column="iso" property="cameraParameter.iso"/>
+                <result column="shutter" property="cameraParameter.shutter"/>
+            </case>
+            <case value="video" resultType="com.emrys.vaipixel.db.model.Video"/>
         </discriminator>
     </resultMap>
 

@@ -49,7 +49,7 @@ public class Work implements Serializable {
     }
 
     public long getCreatedTime() {
-        return createdTime.getTime();
+        return createdTime == null ? 0 : createdTime.getTime();
     }
 
     public void setCreatedTime(Timestamp createdTime) {
@@ -57,7 +57,7 @@ public class Work implements Serializable {
     }
 
     public long getUpdatedTime() {
-        return updatedTime.getTime();
+        return updatedTime == null ? 0 : updatedTime.getTime();
     }
 
     public void setUpdatedTime(Timestamp updatedTime) {

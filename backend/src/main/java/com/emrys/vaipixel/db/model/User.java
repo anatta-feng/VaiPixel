@@ -62,7 +62,7 @@ public class User implements Serializable {
     }
 
     public long getJoinTime() {
-        return joinTime.getTime();
+        return joinTime == null ? 0 : joinTime.getTime();
     }
 
     public void setJoinTime(Timestamp joinTime) {
@@ -70,7 +70,7 @@ public class User implements Serializable {
     }
 
     public long getLastSeenTime() {
-        return lastSeenTime.getTime();
+        return lastSeenTime == null ? 0 : lastSeenTime.getTime();
     }
 
     public void setLastSeenTime(Timestamp lastSeenTime) {
@@ -86,6 +86,8 @@ public class User implements Serializable {
                 ", avatarUrl='" + avatarUrl + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", joinTime=" + joinTime +
+                ", lastSeenTime=" + lastSeenTime +
                 '}';
     }
 }

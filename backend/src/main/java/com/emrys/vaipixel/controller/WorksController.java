@@ -31,7 +31,9 @@ public class WorksController extends BaseController {
 
     @RequestMapping("/photo/{workId}")
     public Work photoDetail(@PathVariable long workId) {
-        return worksService.getWorkDetail(workId);
+        Work workDetail = worksService.getWorkDetail(workId);
+        System.out.println(workDetail);
+        return workDetail;
     }
 
     @RequestMapping("/categories")

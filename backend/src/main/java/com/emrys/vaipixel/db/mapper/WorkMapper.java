@@ -1,8 +1,5 @@
 package com.emrys.vaipixel.db.mapper;
 
-import com.emrys.vaipixel.db.enums.WorkTypeEnum;
-import com.emrys.vaipixel.db.model.Photo;
-import com.emrys.vaipixel.db.model.Video;
 import com.emrys.vaipixel.db.model.Work;
 import com.emrys.vaipixel.dto.cond.WorkCond;
 import org.apache.ibatis.annotations.*;

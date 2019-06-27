@@ -1,5 +1,6 @@
 package com.emrys.vaipixel.service.works;
 
+import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 import com.emrys.vaipixel.db.model.Category;
 import com.emrys.vaipixel.db.model.Tag;
 import com.emrys.vaipixel.db.model.Work;
@@ -36,7 +37,7 @@ public interface IWorksService {
      * @param workId workId
      * @return work
      */
-    Work getWorkDetail(long workId);
+    Work getWorkDetail(long workId, WorkTypeEnum type);
 
     /**
      * 增加作品点击量

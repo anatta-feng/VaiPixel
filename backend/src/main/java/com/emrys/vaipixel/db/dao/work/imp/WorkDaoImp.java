@@ -1,6 +1,7 @@
 package com.emrys.vaipixel.db.dao.work.imp;
 
 import com.emrys.vaipixel.db.dao.work.IWorkDao;
+import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 import com.emrys.vaipixel.db.mapper.PhotoMapper;
 import com.emrys.vaipixel.db.mapper.VideoMapper;
 import com.emrys.vaipixel.db.mapper.WorkMapper;
@@ -43,8 +44,8 @@ public class WorkDaoImp implements IWorkDao {
     }
 
     @Override
-    public Work getWorkById(long workId) {
-        return workMapper.getWorkById(workId);
+    public Work getWorkById(long workId, WorkTypeEnum type) {
+        return workMapper.getWorkByIdAndType(workId, type);
     }
 
     @Override

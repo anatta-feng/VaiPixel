@@ -1,5 +1,6 @@
 package com.emrys.vaipixel.db.dao.work;
 
+import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 import com.emrys.vaipixel.db.model.Photo;
 import com.emrys.vaipixel.db.model.Video;
 import com.emrys.vaipixel.db.model.Work;
@@ -14,7 +15,7 @@ public interface IWorkDao {
 
     Work getWorkByName(String name);
 
-    Work getWorkById(long workId);
+    Work getWorkById(long workId, WorkTypeEnum type);
 
     PageInfo<Work> getWorks(int pageNum, int pageSize);
 

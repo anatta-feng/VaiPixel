@@ -1,5 +1,6 @@
 package com.emrys.vaipixel.db.mapper;
 
+import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 import com.emrys.vaipixel.db.model.Work;
 import com.emrys.vaipixel.dto.cond.WorkCond;
 import org.apache.ibatis.annotations.*;
@@ -26,6 +27,16 @@ public interface WorkMapper {
             "WHERE work.work_id = #{workId}")
     @ResultMap("com.emrys.vaipixel.db.mapper.WorkMapper.WorkResultMap")
     Work getWorkById(long workId);
+
+    @Select("SELECT work.work_id, title, description, created_time, updated_time, width, height, type, large_url, " +
+            "medium_url, small_url, thumb_url, author_id, category_id, like_count, page_view, user_view, camera, " +
+            "lens, focal_length, aperture, iso, shutter, device_name, play_url " +
+            "FROM t_work AS work " +
+            "LEFT JOIN t_photo ON t_photo.work_id = work.work_id " +
+            "LEFT JOIN t_video ON t_video.work_id = work.work_id " +
+            "WHERE work.work_id = #{workId} AND type = #{type}")
+    @ResultMap("com.emrys.vaipixel.db.mapper.WorkMapper.WorkResultMap")
+    Work getWorkByIdAndType(long workId, WorkTypeEnum type);
 
     List<Work> getWorksByCond(WorkCond cond);
 

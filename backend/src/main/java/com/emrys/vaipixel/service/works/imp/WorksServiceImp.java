@@ -4,6 +4,7 @@ import com.emrys.vaipixel.db.dao.category.ICategoryDao;
 import com.emrys.vaipixel.db.dao.tag.ITagDao;
 import com.emrys.vaipixel.db.dao.user.IUserDao;
 import com.emrys.vaipixel.db.dao.work.IWorkDao;
+import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 import com.emrys.vaipixel.db.model.Category;
 import com.emrys.vaipixel.db.model.Tag;
 import com.emrys.vaipixel.db.model.Work;
@@ -67,8 +68,8 @@ public class WorksServiceImp implements IWorksService {
     }
 
     @Override
-    public Work getWorkDetail(long workId) {
-        return workDao.getWorkById(workId);
+    public Work getWorkDetail(long workId, WorkTypeEnum type) {
+        return workDao.getWorkById(workId, type);
     }
 
     @Override

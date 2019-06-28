@@ -2,6 +2,7 @@ package com.emrys.vaipixel.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -71,18 +72,18 @@ public class SnowflakeIdWorker {
     public SnowflakeIdWorker() {
     }
 
-    @Autowired
-    @Qualifier("workId")
+    @Value("${snow.flake.workerId}")
     public void setWorkerId(long workerId) {
+        System.out.println(workerId + "   w");
         if (workerId > maxWorkerId || workerId < 0) {
             throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));
         }
         this.workerId = workerId;
     }
 
-    @Autowired
-    @Qualifier("dataCenterId")
+    @Value("${snow.flake.dataCenterId}")
     public void setDataCenterId(long dataCenterId) {
+        System.out.println(dataCenterId + "   d");
         if (dataCenterId > maxDatacenterId || dataCenterId < 0) {
             throw new IllegalArgumentException(String.format("datacenter Id can't be greater than %d or less than 0", maxDatacenterId));
         }

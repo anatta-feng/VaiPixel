@@ -74,7 +74,6 @@ public class SnowflakeIdWorker {
 
     @Value("${snow.flake.workerId}")
     public void setWorkerId(long workerId) {
-        System.out.println(workerId + "   w");
         if (workerId > maxWorkerId || workerId < 0) {
             throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));
         }
@@ -83,7 +82,6 @@ public class SnowflakeIdWorker {
 
     @Value("${snow.flake.dataCenterId}")
     public void setDataCenterId(long dataCenterId) {
-        System.out.println(dataCenterId + "   d");
         if (dataCenterId > maxDatacenterId || dataCenterId < 0) {
             throw new IllegalArgumentException(String.format("datacenter Id can't be greater than %d or less than 0", maxDatacenterId));
         }

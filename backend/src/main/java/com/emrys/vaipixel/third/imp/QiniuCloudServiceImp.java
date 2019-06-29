@@ -20,7 +20,9 @@ public class QiniuCloudServiceImp implements IQiniuCloudService {
         this.auth = auth;
     }
 
-    public void getUploadAuth() {
+    @Override
+    public String getUploadAuth() {
         StringMap putPolicy = new StringMap();
+        return auth.uploadToken(bucket, null, 10, putPolicy);
     }
 }

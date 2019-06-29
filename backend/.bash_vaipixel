@@ -1,0 +1,9 @@
+export dbUser=root
+export dbPasswd=root
+export SNOW_FLAKE_WORK_ID=1
+export SNOW_FLAKE_DATA_CENTER_ID=1
+
+export QI_NIU_ACCESS_KEY=accesskey
+export QI_NIU_SERECT_KEY=serectkey
+export QI_NIU_BUCKET=bucket
+export QI_NIU_CDN_URL=url

@@ -15,6 +15,28 @@ public class QiniuCloudServiceImp implements IQiniuCloudService {
 
     private Auth auth;
 
+    private String callbackUrl = "http://requestbin.fullcontact.com/1gwe6441";
+    private String callbackBodyType = "application/json";
+
+    private long expireSeconds = 3600;
+
+    private String callbackBody = "{" +
+            "\"key\":\"$(key)\"," +
+            "\"hash\":\"$(etag)\"," +
+            "\"bucket\":\"$(bucket)\"," +
+            "\"fsize\":$(fsize)," +
+            "\"exif\":${exif}" +
+            "}";
+
+    private String returnBody = "{" +
+            "\"key\":\"$(key)\"," +
+            "\"hash\":\"$(etag)\"," +
+            "\"bucket\":\"$(bucket)\"," +
+            "\"fsize\":$(fsize)," +
+            "\"exif\":${exif}" +
+            "}";
+
+
     @Autowired
     public QiniuCloudServiceImp(Auth auth) {
         this.auth = auth;
@@ -23,6 +45,11 @@ public class QiniuCloudServiceImp implements IQiniuCloudService {
     @Override
     public String getUploadAuth() {
         StringMap putPolicy = new StringMap();
-        return auth.uploadToken(bucket, null, 10, putPolicy);
+        putPolicy.put("callbackUrl", callbackUrl);
+        putPolicy.put("callbackBody", callbackBody);
+        putPolicy.put("callbackBodyType", callbackBodyType);
+        putPolicy.put("returnBody", returnBody);
+        return auth.uploadToken(bucket, null, expireSeconds, putPolicy);
     }
+
 }

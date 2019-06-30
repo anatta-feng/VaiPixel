@@ -3,7 +3,10 @@ package com.emrys.vaipixel.controller;
 import com.emrys.vaipixel.db.model.Category;
 import com.emrys.vaipixel.db.model.Tag;
 import com.emrys.vaipixel.db.model.Work;
+import com.emrys.vaipixel.response.UploadAuthResponse;
+import com.emrys.vaipixel.response.VaiPixelResponse;
 import com.emrys.vaipixel.service.works.IWorksService;
+import com.emrys.vaipixel.third.IQiniuCloudService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +21,16 @@ public class WorksController extends BaseV1Controller {
 
     private IWorksService worksService;
 
+    private IQiniuCloudService qiniuCloudService;
+
     @Autowired
     public WorksController(IWorksService worksService) {
         this.worksService = worksService;
+    }
+
+    @Autowired
+    public void setQiniuCloudService(IQiniuCloudService qiniuCloudService) {
+        this.qiniuCloudService = qiniuCloudService;
     }
 
     @RequestMapping("/works")
@@ -42,10 +52,11 @@ public class WorksController extends BaseV1Controller {
         return worksService.getWorkDetail(workId, video);
     }
 
-    @RequestMapping(value = "/work/upload/file", method = RequestMethod.POST)
+    @RequestMapping(value = "/work/upload/auth", method = RequestMethod.POST)
     @ResponseBody
-    public String uploadWork(@RequestParam("file") MultipartFile file) {
-        return file.getOriginalFilename();
+    public VaiPixelResponse uploadAuth() {
+        String token = qiniuCloudService.getUploadAuth();
+        return new UploadAuthResponse(token);
     }
 
     @RequestMapping(value = "/work/upload", method = RequestMethod.POST)

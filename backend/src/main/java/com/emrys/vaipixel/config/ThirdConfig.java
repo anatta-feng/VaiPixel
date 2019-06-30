@@ -10,7 +10,7 @@ public class ThirdConfig {
 
     @Bean
     public Auth getQiniuCloudAuth(@Value("${qiniu.accesskey}") String accessKey,
-                                  @Value("${qiniu.secretKey}") String secretKey) {
+                                  @Value("${qiniu.serectkey}") String secretKey) {
         return Auth.create(accessKey, secretKey);
     }
 }

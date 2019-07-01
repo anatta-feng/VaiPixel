@@ -1,6 +1,9 @@
-package com.emrys.vaipixel.third.imp;
+package com.emrys.vaipixel.third.service.imp;
 
-import com.emrys.vaipixel.third.IQiniuCloudService;
+import com.emrys.vaipixel.third.service.IQiniuCloudService;
+import com.qiniu.common.QiniuException;
+import com.qiniu.storage.BucketManager;
+import com.qiniu.storage.Configuration;
 import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +21,7 @@ public class QiniuCloudServiceImp implements IQiniuCloudService {
     private String callbackUrl = "http://requestbin.fullcontact.com/1gwe6441";
     private String callbackBodyType = "application/json";
 
-    private long expireSeconds = 3600;
+    private long expireSeconds = 1;
 
     private String callbackBody = "{" +
             "\"key\":\"$(key)\"," +
@@ -50,6 +53,18 @@ public class QiniuCloudServiceImp implements IQiniuCloudService {
         putPolicy.put("callbackBodyType", callbackBodyType);
         putPolicy.put("returnBody", returnBody);
         return auth.uploadToken(bucket, null, expireSeconds, putPolicy);
+    }
+
+    @Override
+    public void setResourceDeadline(String key, int day) throws QiniuException {
+        Configuration configuration = new Configuration();
+        BucketManager bucketManager = new BucketManager(auth, configuration);
+        bucketManager.deleteAfterDays(bucket, key, day);
+    }
+
+    @Override
+    public void removeResourceDeadline(String key) throws QiniuException {
+        setResourceDeadline(key, 0);
     }
 
 }

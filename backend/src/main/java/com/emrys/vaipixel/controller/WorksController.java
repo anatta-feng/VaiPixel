@@ -6,11 +6,10 @@ import com.emrys.vaipixel.db.model.Work;
 import com.emrys.vaipixel.response.UploadAuthResponse;
 import com.emrys.vaipixel.response.VaiPixelResponse;
 import com.emrys.vaipixel.service.works.IWorksService;
-import com.emrys.vaipixel.third.IQiniuCloudService;
+import com.emrys.vaipixel.third.service.IQiniuCloudService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import static com.emrys.vaipixel.constant.Constant.Params.*;
 import static com.emrys.vaipixel.db.enums.WorkTypeEnum.photo;

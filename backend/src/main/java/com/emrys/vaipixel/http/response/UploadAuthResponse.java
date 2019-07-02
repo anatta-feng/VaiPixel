@@ -1,4 +1,4 @@
-package com.emrys.vaipixel.response;
+package com.emrys.vaipixel.http.response;
 
 public class UploadAuthResponse extends VaiPixelResponse {
     private String token;

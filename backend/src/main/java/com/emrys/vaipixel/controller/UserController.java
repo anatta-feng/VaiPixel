@@ -11,4 +11,9 @@ public class UserController extends BaseV1Controller {
     public void login(LoginRequest request) {
         System.out.println("login");
     }
+
+    @RequestMapping("/userInfo")
+    public void getUserInfo() {
+
+    }
 }

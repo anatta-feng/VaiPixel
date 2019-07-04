@@ -14,6 +14,6 @@ public class UserController extends BaseV1Controller {
 
     @RequestMapping("/userInfo")
     public void getUserInfo() {
-
+        System.out.println("getUserInfo");
     }
 }

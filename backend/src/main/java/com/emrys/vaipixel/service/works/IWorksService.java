@@ -4,7 +4,6 @@ import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 import com.emrys.vaipixel.db.model.Category;
 import com.emrys.vaipixel.db.model.Tag;
 import com.emrys.vaipixel.db.model.Work;
-import com.emrys.vaipixel.dto.cond.WorkCond;
 import com.github.pagehelper.PageInfo;
 
 public interface IWorksService {

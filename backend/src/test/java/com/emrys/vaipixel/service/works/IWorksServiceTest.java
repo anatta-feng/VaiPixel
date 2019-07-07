@@ -1,11 +1,15 @@
-package com.emrys.vaipixel.service;
+package com.emrys.vaipixel.service.works;
 
 import com.emrys.vaipixel.BaseTest;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.*;
 
-public class WorksServiceTest extends BaseTest {
+public class IWorksServiceTest extends BaseTest {
+
+    @Autowired
+    private IWorksService worksService;
 
     @Test
     public void addWork() {
@@ -20,7 +24,7 @@ public class WorksServiceTest extends BaseTest {
     }
 
     @Test
-    public void getWorkByCond() {
+    public void getWorkDetail() {
     }
 
     @Test
@@ -37,5 +41,13 @@ public class WorksServiceTest extends BaseTest {
 
     @Test
     public void updateWork() {
+    }
+
+    @Test
+    public void getCategories() {
+    }
+
+    @Test
+    public void getTags() {
     }
 }

@@ -52,10 +52,8 @@ public class VaiException extends RuntimeException {
         this.apiResponse = apiResponse;
     }
 
-    public static VaiException withErrorCode(int errorCode) {
-        VaiException exception = new VaiException();
-        exception.setErrorCode(errorCode);
-        return exception;
+    public static VaiException withStatus(Constant.ErrorStatus status) {
+        return new VaiException(status);
     }
 
     public static VaiException fromApiResponse(ApiResponse response) {

@@ -24,4 +24,9 @@ public interface IUserService {
      */
     void updateUserInfo(User user);
 
+    /**
+     * 添加用户
+     * @param user 用户信息
+     */
+    void addUser(User user);
 }

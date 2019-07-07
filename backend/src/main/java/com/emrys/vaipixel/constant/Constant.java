@@ -24,17 +24,21 @@ public class Constant {
 
         // 用户出错 2200～2299
         FAIL_USER_ALREADY_EXIST(2200, "User already exist"),
-        FAIL_USER_NOT_EXIST(2201, "User not exist");
+        FAIL_USER_NOT_EXIST(2201, "User not exist"),
+        FAIL_USER_LOGIN_ERROR(2202, "Login error");
 
         private int code;
         private String message;
+
         ErrorStatus(int code, String message) {
             this.code = code;
             this.message = message;
         }
+
         public int code() {
             return code;
         }
+
         public String message() {
             return message;
         }

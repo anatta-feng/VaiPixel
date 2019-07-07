@@ -1,6 +1,6 @@
-# vai-pixel
+# vaipixel
 
-> A website showing my photography
+> Show photo
 
 ## Build Setup
 

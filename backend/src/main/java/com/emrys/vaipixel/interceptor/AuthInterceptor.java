@@ -1,5 +1,6 @@
 package com.emrys.vaipixel.interceptor;
 
+import com.emrys.vaipixel.exception.VaiException;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -9,8 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("preHandle");
-        return true;
+        System.out.println("preHandle " + handler.getClass());
+        throw new VaiException();
+//        return true;
     }
 
     @Override

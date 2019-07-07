@@ -56,19 +56,19 @@ public class QiniuCloudServiceImp implements IThirdObjectStorageService {
     }
 
     @Override
-    public void setResourceDeadline(String key, int day) throws QiniuException {
+    public void setResourceDeadline(String key, int day) {
         Configuration configuration = new Configuration();
         BucketManager bucketManager = new BucketManager(auth, configuration);
-        bucketManager.deleteAfterDays(bucket, key, day);
+        try {
+            bucketManager.deleteAfterDays(bucket, key, day);
+        } catch (QiniuException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void removeResourceDeadline(String key) {
-        try {
-            setResourceDeadline(key, 0);
-        } catch (QiniuException e) {
-            e.printStackTrace();
-        }
+        setResourceDeadline(key, 0);
     }
 
 }

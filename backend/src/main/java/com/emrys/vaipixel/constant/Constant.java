@@ -21,6 +21,7 @@ public class Constant {
         // 作品出错 2100～2199
         FAIL_WORK_ALREADY_EXIST(2101, "Work already exist"),
         FAIL_WORK_NOT_EXIST(2102, "Work not exist"),
+        FAIL_WORK_KEY_ERROR(2103, "Work key error"),
 
         // 用户出错 2200～2299
         FAIL_USER_ALREADY_EXIST(2200, "User already exist"),

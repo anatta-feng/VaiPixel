@@ -11,9 +11,11 @@ import com.emrys.vaipixel.db.model.Work;
 import com.emrys.vaipixel.exception.VaiException;
 import com.emrys.vaipixel.service.works.IWorkEditor;
 import com.emrys.vaipixel.service.works.IWorksService;
+import com.emrys.vaipixel.third.service.IThirdObjectStorageService;
 import com.emrys.vaipixel.utils.SnowflakeIdWorker;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
 import static com.emrys.vaipixel.constant.Constant.ErrorStatus.*;
@@ -30,6 +32,8 @@ public class WorksServiceImp implements IWorksService {
     private IUserDao userDao;
 
     private SnowflakeIdWorker idWorker;
+
+    private IThirdObjectStorageService objectStorageService;
 
     public void setWorkDao(IWorkDao workDao) {
         this.workDao = workDao;
@@ -55,9 +59,14 @@ public class WorksServiceImp implements IWorksService {
         this.idWorker = idWorker;
     }
 
+    @Autowired
+    public void setObjectStorageService(IThirdObjectStorageService objectStorageService) {
+        this.objectStorageService = objectStorageService;
+    }
+
     @SuppressWarnings("unchecked")
     @Override
-    public void addWork(Work work) {
+    public void addWork(String key, @Nullable Work work) {
         if (work == null) {
             throw new VaiException(FAIL_REQUEST_PARAM);
         } else if (workDao.isWorkExist(work)) {
@@ -74,6 +83,7 @@ public class WorksServiceImp implements IWorksService {
             work.setWorkId(idWorker.nextId());
             IWorkEditor workEditor = IWorkEditor.processWork(work);
             workEditor.addWork(work);
+            objectStorageService.removeResourceDeadline(key);
         }
     }
 

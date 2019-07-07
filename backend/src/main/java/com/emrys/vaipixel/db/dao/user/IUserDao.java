@@ -11,4 +11,6 @@ public interface IUserDao {
     User getUserById(long UserId);
 
     void addUser(User user);
+
+    User getUserInfoByCond(String userName, String password);
 }

@@ -1,6 +1,6 @@
 package com.emrys.vaipixel.third.service.imp;
 
-import com.emrys.vaipixel.third.service.IQiniuCloudService;
+import com.emrys.vaipixel.third.service.IThirdObjectStorageService;
 import com.qiniu.common.QiniuException;
 import com.qiniu.storage.BucketManager;
 import com.qiniu.storage.Configuration;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-public class QiniuCloudServiceImp implements IQiniuCloudService {
+public class QiniuCloudServiceImp implements IThirdObjectStorageService {
 
     @Value("${qiniu.bucket}")
     String bucket;
@@ -63,8 +63,12 @@ public class QiniuCloudServiceImp implements IQiniuCloudService {
     }
 
     @Override
-    public void removeResourceDeadline(String key) throws QiniuException {
-        setResourceDeadline(key, 0);
+    public void removeResourceDeadline(String key) {
+        try {
+            setResourceDeadline(key, 0);
+        } catch (QiniuException e) {
+            e.printStackTrace();
+        }
     }
 
 }

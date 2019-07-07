@@ -13,7 +13,7 @@ public interface IWorksService {
      *
      * @param work 待添加的作品信息
      */
-    void addWork(Work work);
+    void addWork(String key, Work work);
 
     /**
      * 根据作品 Id 删除作品

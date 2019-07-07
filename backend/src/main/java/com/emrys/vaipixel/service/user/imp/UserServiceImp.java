@@ -1,5 +1,6 @@
 package com.emrys.vaipixel.service.user.imp;
 
+import com.emrys.vaipixel.db.dao.user.IUserDao;
 import com.emrys.vaipixel.db.mapper.UserMapper;
 import com.emrys.vaipixel.db.model.User;
 import com.emrys.vaipixel.exception.VaiException;
@@ -14,11 +15,11 @@ import static com.emrys.vaipixel.constant.Constant.ErrorStatus.FAIL_USER_LOGIN_E
 @Service
 public class UserServiceImp implements IUserService {
 
-    private UserMapper userMapper;
+    private IUserDao userDao;
 
     @Autowired
-    public UserServiceImp(UserMapper userMapper) {
-        this.userMapper = userMapper;
+    public UserServiceImp(IUserDao userDao) {
+        this.userDao = userDao;
     }
 
     @Override
@@ -26,7 +27,7 @@ public class UserServiceImp implements IUserService {
         if (StringUtils.isEmpty(userName) || StringUtils.isEmpty(password)) {
             throw VaiException.withStatus(FAIL_REQUEST_PARAM);
         }
-        User user = userMapper.getUserInfoByCond(userName, password);
+        User user = userDao.getUserInfoByCond(userName, password);
         if (user == null) {
             throw VaiException.withStatus(FAIL_USER_LOGIN_ERROR);
         }
@@ -45,6 +46,6 @@ public class UserServiceImp implements IUserService {
 
     @Override
     public void addUser(User user) {
-        userMapper.addUser(user);
+        userDao.addUser(user);
     }
 }

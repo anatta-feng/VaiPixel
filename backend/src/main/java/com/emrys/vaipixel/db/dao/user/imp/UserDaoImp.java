@@ -9,8 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDaoImp implements IUserDao {
 
-    @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    public UserDaoImp(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
 
     @Override
     public boolean isUserExist(User user) {
@@ -30,5 +34,10 @@ public class UserDaoImp implements IUserDao {
     @Override
     public void addUser(User user) {
         userMapper.addUser(user);
+    }
+
+    @Override
+    public User getUserInfoByCond(String userName, String password) {
+        return userMapper.getUserInfoByCond(userName, password);
     }
 }

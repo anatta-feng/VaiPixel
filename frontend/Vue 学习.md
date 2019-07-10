@@ -37,3 +37,21 @@ Vue 对象结构
 * data 数据
 * watch 监听属性 帧听器，只能监听指定的一个变量（异步场景
 * computed  计算属性，可以监听方法体里所有的变量（数据联动
+
+# 条件渲染
+
+* v-if
+
+* v-else-if
+
+* v-else
+
+* v-show
+
+## v-if 和 v-show 的区别
+
+# 列表渲染
+
+* v-for
+* v-for 和 v-if 结合使用
+* v-for 高阶用法

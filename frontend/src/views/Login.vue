@@ -26,47 +26,47 @@
 </template>
 
 <script>
-  export default {
-    name: 'Login',
-    data () {
-      return {
-        isReg: false,
-        name: '',
-        password: '',
-        repeat: ''
+export default {
+  name: 'Login',
+  data () {
+    return {
+      isReg: false,
+      name: '',
+      password: '',
+      repeat: ''
+    }
+  },
+  methods: {
+    login () {
+      if (localStorage.getItem('name') === this.name && localStorage.getItem('password') === this.password) {
+        this.$router.push('/home/list')
+        this.name = ''
+        this.password = ''
+        this.repeat = ''
+      } else {
+        alert('密码不正确')
       }
     },
-    methods: {
-      login () {
-        if (localStorage.getItem('name') === this.name && localStorage.getItem('password') === this.password) {
-          this.$router.push('/home/list')
-          this.name = ''
-          this.password = ''
-          this.repeat = ''
-        } else {
-          alert('密码不正确')
-        }
-      },
-      reg () {
-        this.isReg = true
-      },
-      addUser () {
-        if (this.password === this.repeat) {
-          localStorage.setItem('name', this.name)
-          localStorage.setItem('password', this.password)
-          this.name = ''
-          this.password = ''
-          this.repeat = ''
-          this.isReg = false
-        } else {
-          alert('两次密码不一致')
-        }
-      },
-      cancel () {
+    reg () {
+      this.isReg = true
+    },
+    addUser () {
+      if (this.password === this.repeat) {
+        localStorage.setItem('name', this.name)
+        localStorage.setItem('password', this.password)
+        this.name = ''
+        this.password = ''
+        this.repeat = ''
         this.isReg = false
+      } else {
+        alert('两次密码不一致')
       }
+    },
+    cancel () {
+      this.isReg = false
     }
   }
+}
 </script>
 
 <style scoped>

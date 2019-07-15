@@ -9,17 +9,17 @@
 </template>
 
 <script>
-  import store from '@/store'
+import store from '@/store'
 
-  export default {
-    name: 'List',
-    store,
-    computed: {
-      pageLists () {
-        return store.state.lists
-      }
+export default {
+  name: 'List',
+  store,
+  computed: {
+    pageLists () {
+      return store.state.lists
     }
   }
+}
 </script>
 
 <style scoped>

@@ -1,7 +1,8 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand href="#">NavBar</b-navbar-brand>
+      <img src="" style="height: 100px; width: 100px;"/>
+      <b-navbar-brand href="#">VaiPixel</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

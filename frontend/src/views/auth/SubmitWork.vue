@@ -13,6 +13,7 @@
                 Drop your images here or
                 <span class="underline-text">Browse</span>
               </div>
+              <input type="file" multiple accept="image/jpeg">
             </label>
             <div class="submit-works-group" v-for="(item, index) in workList" :key="index">
               <div class="submit-work-card">
@@ -40,7 +41,7 @@
       return {
         workList: [{
           fileName: '',
-          filePath: ''
+          filePath: 'blob:https://unsplash.com/98fd683f-19b7-475e-8bf7-b86b12bd459f'
         }]
       }
     }

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login'
 import Home from './views/Home'
+import SubmitWork from './views/auth/SubmitWork'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/add',
       name: 'add',
       component: () => import(/* webpackChunkName: "list" */ './views/Add.vue')
+    },
+    {
+      path: '/submit',
+      name: 'submit',
+      component: SubmitWork
     }
   ]
 })

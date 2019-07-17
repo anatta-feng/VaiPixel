@@ -1,5 +1,7 @@
 <template>
   <div class="submit group">
+    <UploadBtn></UploadBtn>
+
     <div class="submit header">
       <h4 class="submit title">Publish your first photos 🎉</h4>
     </div>
@@ -15,17 +17,7 @@
               </div>
               <input type="file" multiple accept="image/jpeg">
             </label>
-            <div class="submit-works-group" v-for="(item, index) in workList" :key="index">
-              <div class="submit-work-card">
-                <div class="submit-work-card-info">
-                  <img v-bind:src="item.filePath" v-bind:alt="item.fileName" class="submit-work-card-img">
-                  <div class="submit-work-card-hover"></div>
-                  <div class="submit-work-card-progressbar"></div>
-                </div>
-                <textarea class="submit-work-card-desc" placeholder="Write a description (optional)"
-                          maxlength="600"></textarea>
-              </div>
-            </div>
+            <NewComponent :work-list="workList"/>
           </div>
         </div>
       </form>
@@ -34,9 +26,12 @@
 </template>
 
 <script>
+  import NewComponent from './NewComponent'
+  import UploadBtn from '../../components/upload/UploadBtn'
+
   export default {
     name: 'SubmitWork',
-    components: {},
+    components: { UploadBtn, NewComponent },
     data () {
       return {
         workList: [{
@@ -84,28 +79,4 @@
     color: #999999;
   }
 
-  .submit-works-group {
-
-  }
-
-  .submit-work-card {
-    width: 33.33%;
-  }
-
-  .submit-work-card-info {
-    padding-bottom: 66.6667%;
-    position: relative;
-  }
-
-  .submit-work-card-img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    background-color: rgba(0, 0, 0, .4);
-  }
-
-  .submit-work-card-desc {
-    width: 100%;
-  }
 </style>

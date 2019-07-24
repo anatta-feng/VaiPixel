@@ -21,7 +21,7 @@ public class QiniuCloudServiceImp implements IThirdObjectStorageService {
     private String callbackUrl = "http://requestbin.fullcontact.com/1gwe6441";
     private String callbackBodyType = "application/json";
 
-    private long expireSeconds = 1;
+    private long expireSeconds = 10000;
 
     private String callbackBody = "{" +
             "\"key\":\"$(key)\"," +

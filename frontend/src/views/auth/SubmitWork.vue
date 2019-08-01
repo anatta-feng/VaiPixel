@@ -5,42 +5,25 @@
     <div class="submit header">
       <h4 class="submit title">Publish your first photos 🎉</h4>
     </div>
-    <div class="submit content">
-      <form action="" class="submit form">
-        <div class="submit upload-group">
-          <div class="submit upload">
-            <label for="" class="submit-label">
-              <img src="../../assets/img/upload/icon_upload.png" alt="">
-              <div>
-                Drop your images here or
-                <span class="underline-text">Browse</span>
-              </div>
-              <input type="file" multiple accept="image/jpeg">
-            </label>
-            <NewComponent :work-list="workList"/>
-          </div>
-        </div>
-      </form>
-    </div>
   </div>
 </template>
 
 <script>
-  import NewComponent from './NewComponent'
-  import UploadBtn from '../../components/upload/UploadBtn'
+import NewComponent from './NewComponent'
+import UploadBtn from '../../components/upload/UploadBtn'
 
-  export default {
-    name: 'SubmitWork',
-    components: { UploadBtn, NewComponent },
-    data () {
-      return {
-        workList: [{
-          fileName: '',
-          filePath: 'blob:https://unsplash.com/98fd683f-19b7-475e-8bf7-b86b12bd459f'
-        }]
-      }
+export default {
+  name: 'SubmitWork',
+  components: { UploadBtn, NewComponent },
+  data () {
+    return {
+      workList: [{
+        fileName: '',
+        filePath: 'blob:https://unsplash.com/98fd683f-19b7-475e-8bf7-b86b12bd459f'
+      }]
     }
   }
+}
 </script>
 
 <style lang="scss">

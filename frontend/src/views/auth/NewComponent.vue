@@ -14,12 +14,12 @@
   </div>
 </template>
 <script>
-  export default {
-    name: 'NewComponent',
-    props: {
-      workList: {}
-    }
+export default {
+  name: 'NewComponent',
+  props: {
+    workList: {}
   }
+}
 </script>
 <style lang="scss">
 

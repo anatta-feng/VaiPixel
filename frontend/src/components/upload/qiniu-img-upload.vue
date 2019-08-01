@@ -21,7 +21,8 @@ export default {
     token: String,
     file: File,
     onChange: Function,
-    onBefore: Function,
+    onBefore: {
+    },
     onProgress: Function,
     onSuccess: Function,
     onFailed: Function
@@ -37,6 +38,7 @@ export default {
       let tempFile = files[0]
       tempFile.url = URL.createObjectURL(tempFile)
       this.submitFile = tempFile
+      console.log('adad')
       this.onChange(tempFile)
       this.submit()
     },

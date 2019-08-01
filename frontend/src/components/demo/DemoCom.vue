@@ -1,6 +1,6 @@
 <template>
   <div>
-    Demo
+    <h4 @click="cc">{{post.title}}</h4>
   </div>
 </template>
 
@@ -8,7 +8,8 @@
 export default {
   name: 'DemoCom',
   props: {
-
+    post: Object,
+    testClick: Function
   },
   data: function () {
     return {
@@ -16,7 +17,9 @@ export default {
     }
   },
   methods: {
-
+    cc: function () {
+      this.testClick()
+    }
   }
 }
 </script>

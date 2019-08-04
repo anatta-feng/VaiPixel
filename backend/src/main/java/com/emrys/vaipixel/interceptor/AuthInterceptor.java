@@ -11,8 +11,8 @@ public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("preHandle " + handler.getClass());
-        throw new VaiException();
-//        return true;
+//        throw new VaiException();
+        return true;
     }
 
     @Override

@@ -18,25 +18,19 @@ import * as qiniu from 'qiniu-js'
 export default {
   name: 'UploadBtn',
   props: {
-    token: {
-      type: String,
-      default: 'asd'
-    }
+    token: String
   },
   data: function () {
     return {
-      uploadToken: this.token,
-      demo: 'assdds'
     }
   },
   methods: {
     fileChange: function ({ target: { files } }) {
-      console.log(this)
       if (files.length === 0) {
         return
       }
       const uploadFile = files[0]
-      this.uploadImg2Qiniu(uploadFile, this.uploadToken)
+      this.uploadImg2Qiniu(uploadFile, this.token)
     },
     clickSelectFile: function () {
       this.$refs.selectFile.dispatchEvent(new MouseEvent('click'))
@@ -54,13 +48,15 @@ export default {
       let _this = this
       let key = file.name
       let config = {
-        useCdnDomain: true
+        useCdnDomain: true,
+        region: qiniu.region.z2
       }
       let putExtra = {
         fname: file,
         params: {},
         mimeType: ['image/png', 'image/jpeg', 'image/jpg']
       }
+      console.log(token)
       let observable = qiniu.upload(file, key, token, putExtra, config)
       observable.subscribe({
         next (res) {

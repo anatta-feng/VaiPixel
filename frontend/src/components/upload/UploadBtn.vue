@@ -5,7 +5,7 @@
       Drop your image here or
       <span>Browser</span>
     </div>
-    <img class="prevImage" :src="prevImageSrc" alt="PrevImage">
+    <img class="prevImage" :src="prevImageSrc" alt="PrevImage" v-bind:class="{visibly: isSelect}">
     <input accept="image/png, image/jpg, image/jpeg"
            type="file"
            style="display: none"
@@ -33,11 +33,11 @@ export default {
       if (files.length === 0) {
         return
       }
+      _this.isSelect = true
       const uploadFile = files[0]
       var reader = new FileReader()
       reader.onload = function (result) {
         _this.prevImageSrc = result.target.result
-        console.log('124242')
       }
       reader.readAsDataURL(uploadFile)
       this.uploadImg2Qiniu(uploadFile, this.token)
@@ -90,7 +90,11 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    display: block;
+    display: none;
     object-fit: cover;
+  }
+
+  .visibly {
+    display: block;
   }
 </style>

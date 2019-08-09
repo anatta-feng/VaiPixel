@@ -1,11 +1,13 @@
 <template>
   <div @click="clickSelectFile" style="position: relative">
-    <img src="../../assets/img/upload/icon_upload.png" alt="Upload"/>
     <div>
-      Drop your image here or
-      <span>Browser</span>
+      <img src="../../assets/img/upload/icon_upload.png" alt="Upload"/>
+      <div>
+        Drop your image here or
+        <span>Browser</span>
+      </div>
     </div>
-    <img class="prevImage" :src="prevImageSrc" alt="PrevImage" v-bind:class="{visibly: isSelect}">
+    <img class="prevImage" :src="prevImageSrc" alt="PrevImage" v-bind:class="{visibly: isSelect, invisibly: !isSelect}">
     <input accept="image/png, image/jpg, image/jpeg"
            type="file"
            style="display: none"
@@ -90,11 +92,14 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    display: none;
     object-fit: cover;
   }
 
   .visibly {
     display: block;
+  }
+
+  .invisibly {
+    display: none;
   }
 </style>

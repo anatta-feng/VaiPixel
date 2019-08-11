@@ -21,6 +21,7 @@ public class CustomResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+        serverHttpResponse.getHeaders().add("Access-Control-Allow-Origin", "*");
         ApiResponse<Object> pojo = new ApiResponse<>();
         pojo.setStatus(SUCCESS);
         pojo.setData(o);

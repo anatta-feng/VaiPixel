@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Login from './views/Login'
 import Home from './views/Home'
 import SubmitWork from './views/auth/SubmitWork'
-import DemoPage from './views/demo/DemoPage'
 
 Vue.use(Router)
 
@@ -42,11 +41,6 @@ export default new Router({
       path: '/submit',
       name: 'submit',
       component: SubmitWork
-    },
-    {
-      path: '/demo',
-      name: 'demo',
-      component: DemoPage
     }
   ]
 })

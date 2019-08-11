@@ -35,6 +35,7 @@ public class WorksServiceImp implements IWorksService {
 
     private IThirdObjectStorageService objectStorageService;
 
+    @Autowired
     public void setWorkDao(IWorkDao workDao) {
         this.workDao = workDao;
     }

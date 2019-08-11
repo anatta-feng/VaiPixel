@@ -1,9 +1,9 @@
 <template>
   <div class="submit-root">
     <div class="submit-title">
-      <h1>
+      <h4>
         <span>发布图片🎉</span>
-      </h1>
+      </h4>
     </div>
     <div class="submit-group">
       <div class="submit-select-group">
@@ -14,7 +14,7 @@
           <div>
             <label class="pic-info-label" for="title">
               <span>标题</span>
-              <input class="pic-info-input" type="text" id="title" />
+              <input class="pic-info-input" type="text" id="title" content="as"/>
             </label>
             <label class="pic-info-label" for="description">
               <span>描述</span>
@@ -44,7 +44,15 @@ export default {
   components: { UploadBtn },
   data () {
     return {
-      uploadToken: ''
+      uploadToken: '',
+      submitParams: {
+        title: '',
+        description: '',
+        tags: [],
+        classify: '',
+        equipment: {},
+        type: 'photo'
+      }
     }
   },
   created () {
@@ -66,11 +74,20 @@ export default {
   justify-content: space-between;
 }
 
+.submit-title {
+  margin: 2rem 0 0 1rem;
+}
+
+.submit-title h4 {
+  font-size: 1rem;
+}
+
 .submit-select-group {
   flex: 7;
   background-color: white;
   border-radius: 0.2rem;
-  box-shadow: 0 0.1rem 0.25rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.15rem 0.3rem 0 rgba(0, 0, 0, 0.2);
+  padding: 1rem;
 }
 
 .submit-select {
@@ -84,7 +101,7 @@ export default {
   background-color: white;
   border-radius: 0.2rem;
   padding: 0.8rem;
-  box-shadow: 0 0.1rem 0.25rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.15rem 0.3rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .pic-info-label {
@@ -123,7 +140,7 @@ export default {
   padding: 0 1rem;
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.6rem;
+  font-size: .9rem;
   border-radius: 0.3rem;
   width: 100%;
   height: 2.5rem;

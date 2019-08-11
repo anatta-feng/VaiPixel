@@ -2,12 +2,23 @@
   <div class="upload upload_border" @click="clickSelectFile">
     <div>
       <img src="../../assets/img/upload/ic_upload_new_pic.png" alt="Upload"/>
-      <div>
+      <div >
         Drop your image here or
         <span>Browser</span>
       </div>
     </div>
-    <img class="prevImage" :src="prevImageSrc" alt="PrevImage" v-bind:class="{visibly: isSelect, invisibly: !isSelect}">
+    <div>
+      <img class="prevImage" :src="prevImageSrc" alt="PrevImage" v-bind:class="{visibly: isSelect, invisibly: !isSelect}">
+      <div class="upload_progress_bar"
+           aria-valuemin="0"
+           aria-valuemax="100"
+           role="progressbar"
+           :style="{width: getUploadProgress}"></div>
+      <div class="upload_img_mask_parent" v-bind:class="{visibly: isSelect, invisibly: !isSelect}">
+        <div class="upload_img_mask" :style="{transform: getUploadProgressTransform}"></div>
+      </div>
+    </div>
+
     <input accept="image/png, image/jpg, image/jpeg"
            type="file"
            style="display: none"
@@ -22,12 +33,31 @@ import * as qiniu from 'qiniu-js'
 export default {
   name: 'UploadBtn',
   props: {
-    token: String
+    token: String,
+    onSuccessFun: {
+      type: Function,
+      default: function () {
+      }
+    },
+    onFailedFun: {
+      type: Function,
+      default: function () {
+      }
+    }
   },
   data: function () {
     return {
       isSelect: false,
-      prevImageSrc: ''
+      prevImageSrc: '',
+      uploadProgress: 0.0
+    }
+  },
+  computed: {
+    getUploadProgress: function () {
+      return this.uploadProgress + '%'
+    },
+    getUploadProgressTransform: function () {
+      return 'translate(' + this.getUploadProgress + ')'
     }
   },
   methods: {
@@ -36,11 +66,11 @@ export default {
       if (files.length === 0) {
         return
       }
-      _this.isSelect = true
       const uploadFile = files[0]
       var reader = new FileReader()
       reader.onload = function (result) {
         _this.prevImageSrc = result.target.result
+        _this.isSelect = true
       }
       reader.readAsDataURL(uploadFile)
       this.uploadImg2Qiniu(uploadFile, this.token)
@@ -49,13 +79,14 @@ export default {
       this.$refs.selectFile.dispatchEvent(new MouseEvent('click'))
     },
     onProgress: function (percent) {
-      console.log('onProgress ' + percent)
+      this.uploadProgress = percent
     },
     onSuccess: function () {
-      console.log('onSuccess')
+      this.onSuccessFun()
     },
     onFailed: function (code, message) {
       console.log('onFail ' + code + '  ' + message)
+      this.onFailedFun()
     },
     uploadImg2Qiniu: function (file, token) {
       let _this = this
@@ -100,6 +131,28 @@ export default {
   .upload_border:hover {
     border-color: #cfdbe3;
     background-color: #f0f5f7
+  }
+
+  .upload_progress_bar {
+    height: 3px;
+    background-color: #007fff;
+    position: relative;
+    transition: width .3s, background-color .3s
+  }
+
+  .upload_img_mask_parent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0
+  }
+
+  .upload_img_mask {
+    height: 100%;
+    background-color: hsla(0,0%,100%,.5);
+    will-change: transform;
+    transition: transform .3s;
   }
 
   .prevImage {

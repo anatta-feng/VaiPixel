@@ -14,11 +14,11 @@
           <div>
             <label class="pic-info-label" for="title">
               <span>标题</span>
-              <input class="pic-info-input" type="text" id="title" content="as"/>
+              <input class="pic-info-input" type="text" id="title" v-model="submitParams.title"/>
             </label>
             <label class="pic-info-label" for="description">
               <span>描述</span>
-              <input class="pic-info-input" type="text" id="description" />
+              <input class="pic-info-input" type="text" id="description" v-model="submitParams.description"/>
             </label>
             <label class="pic-info-label" for="tags">
               <span>标签（按"回车"键添加标签）</span>

@@ -1,7 +1,7 @@
 <template>
-  <div @click="clickSelectFile" style="position: relative">
+  <div class="upload upload_border" @click="clickSelectFile">
     <div>
-      <img src="../../assets/img/upload/icon_upload.png" alt="Upload"/>
+      <img src="../../assets/img/upload/ic_upload_new_pic.png" alt="Upload"/>
       <div>
         Drop your image here or
         <span>Browser</span>
@@ -18,6 +18,7 @@
 
 <script>
 import * as qiniu from 'qiniu-js'
+
 export default {
   name: 'UploadBtn',
   props: {
@@ -86,6 +87,21 @@ export default {
 </script>
 
 <style scoped>
+  .upload {
+    position: relative;
+  }
+
+  .upload_border {
+    border: 2px dashed #e3e3e3;
+    pointer-events: auto;
+    transition: border-color .15s ease-in-out,background-color .15s ease-in-out
+  }
+
+  .upload_border:hover {
+    border-color: #cfdbe3;
+    background-color: #f0f5f7
+  }
+
   .prevImage {
     position: absolute;
     top: 0;

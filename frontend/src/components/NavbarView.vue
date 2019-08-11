@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar toggleable="lg" type="dark" variant="info" style="position: fixed; height: 3rem;top: 0; left: 0; width: 100%;display: flex">
       <img src="" style="height: 100px; width: 100px;"/>
       <b-navbar-brand href="#">VaiPixel</b-navbar-brand>
 
@@ -35,6 +35,9 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+    <div style="height: 3rem;display: block">
+
+    </div>
   </div>
 </template>
 

@@ -120,6 +120,7 @@ export default {
 <style scoped>
   .upload {
     position: relative;
+    text-align: center;
   }
 
   .upload_border {

@@ -1,65 +1,119 @@
 <template>
-  <div class="submit group">
-    <UploadBtn></UploadBtn>
-
-    <div class="submit header">
-      <h4 class="submit title">Publish your first photos 🎉</h4>
+  <div class="submit-root">
+    <div class="submit-title">
+      <h1>
+        <span>发布图片🎉</span>
+      </h1>
+    </div>
+    <div class="submit-group">
+      <div class="submit-select-group">
+        <UploadBtn></UploadBtn>
+      </div>
+      <div class="submit-info-group">
+        <form>
+          <div>
+            <label class="pic-info-label" for="title">
+              <span>标题</span>
+              <input class="pic-info-input" type="text" id="title">
+            </label>
+            <label class="pic-info-label" for="description">
+              <span>描述</span>
+              <input class="pic-info-input" type="text" id="description">
+            </label>
+            <label class="pic-info-label" for="tags">
+              <span>标签（按"回车"键添加标签）</span>
+              <input class="pic-info-input" type="text" id="tags">
+            </label>
+            <label class="pic-info-label" for="equipment">
+              <span>拍摄设备</span>
+              <input class="pic-info-input" type="text" id="equipment">
+            </label>
+            <button class="btn-submit" type="submit">发布</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import NewComponent from './NewComponent'
+
 import UploadBtn from '../../components/upload/UploadBtn'
 
 export default {
   name: 'SubmitWork',
-  components: { UploadBtn, NewComponent },
+  components: { UploadBtn },
   data () {
-    return {
-      workList: [{
-        fileName: '',
-        filePath: 'blob:https://unsplash.com/98fd683f-19b7-475e-8bf7-b86b12bd459f'
-      }]
-    }
+    return {}
   }
 }
 </script>
 
 <style lang="scss">
-  .submit .header {
-    padding: 8px 12px 10px 16px;
-    background: #42b983;
-    min-height: 48px;
+  .submit-root {
+    text-align: left
+  }
+  .submit-group {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
   }
 
-  .submit .title {
-    font-weight: 500;
-    font-size: 15px;
+  .submit-select-group {
+    flex: 7;
+    background-color: white;
+    border-radius: .2rem;
+    box-shadow: 0 0.1rem 0.25rem 0 rgba(0, 0, 0, .1);;
   }
 
-  .submit .content {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0;
-    min-height: 0;
-    flex-grow: 1;
+  .submit-info-group {
+    flex: 3;
+    margin-left: .8rem;
+    background-color: white;
+    border-radius: .2rem;
+    padding: .8rem;
+    box-shadow: 0 0.1rem 0.25rem 0 rgba(0, 0, 0, .1);
   }
 
-  .submit .upload-group {
-
+  .pic-info-label {
+    width: 100%;
+    margin-top: .8rem;
   }
 
-  .submit-label {
-    display: block;
-    padding: 16px;
-    justify-content: center;
+  .pic-info-label span {
+    color: #4b4b4b;
+    font-size: .6rem;
+    line-height: .8rem;
+    font-weight: 600;
+  }
+
+  .pic-info-label input {
+    margin-top: .5rem;
+  }
+
+  .pic-info-input {
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: .2rem;
+    border: .5px solid #dfdfdf;
+    padding: .6rem;
+    margin: 0;
+    color: #4b4b4b;
+    font-weight: 400;
+    font-size: .6rem;
+    line-height: .8rem;
+  }
+
+  .btn-submit {
+    background-color: #1088f2;
+    color: #fff;
+    padding: 0 1rem;
     cursor: pointer;
-    border: 2px dashed #e3e3e3;
-    border-radius: 2px;
-    color: #999999;
+    font-weight: 600;
+    font-size: .6rem;
+    border-radius: .3rem;
+    width: 100%;
+    height: 2.5rem;
+    margin-top: .8rem;
   }
-
 </style>

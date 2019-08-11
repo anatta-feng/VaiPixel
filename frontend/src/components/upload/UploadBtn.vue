@@ -1,14 +1,15 @@
 <template>
   <div class="upload upload_border" @click="clickSelectFile">
-    <div>
+    <div class="upload_guide">
       <img src="../../assets/img/upload/ic_upload_new_pic.png" alt="Upload"/>
-      <div >
+      <div>
         Drop your image here or
         <span>Browser</span>
       </div>
     </div>
     <div>
-      <img class="prevImage" :src="prevImageSrc" alt="PrevImage" v-bind:class="{visibly: isSelect, invisibly: !isSelect}">
+      <img class="prevImage" :src="prevImageSrc" alt="PrevImage"
+           v-bind:class="{visibly: isSelect, invisibly: !isSelect}">
       <div class="upload_progress_bar"
            aria-valuemin="0"
            aria-valuemax="100"
@@ -121,12 +122,22 @@ export default {
   .upload {
     position: relative;
     text-align: center;
+    align-items: center;
+  }
+
+  .upload_guide {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center
   }
 
   .upload_border {
     border: 2px dashed #e3e3e3;
     pointer-events: auto;
-    transition: border-color .15s ease-in-out,background-color .15s ease-in-out
+    transition: border-color .15s ease-in-out, background-color .15s ease-in-out
   }
 
   .upload_border:hover {
@@ -146,12 +157,13 @@ export default {
     width: 100%;
     height: 100%;
     top: 0;
-    left: 0
+    left: 0;
+    overflow: hidden;
   }
 
   .upload_img_mask {
     height: 100%;
-    background-color: hsla(0,0%,100%,.5);
+    background-color: hsla(0, 0%, 100%, .5);
     will-change: transform;
     transition: transform .3s;
   }

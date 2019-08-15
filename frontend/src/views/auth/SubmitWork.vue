@@ -7,7 +7,10 @@
     </div>
     <div class="submit-group">
       <div class="submit-select-group">
-        <UploadBtn class="submit-select" :token="uploadToken"></UploadBtn>
+        <UploadBtn class="submit-select"
+                   :token="uploadToken"
+                   :on-success="onSuccess"
+                   :on-failed="onFailed"></UploadBtn>
       </div>
       <div class="submit-info-group">
         <form>
@@ -58,9 +61,17 @@ export default {
   created () {
     let _this = this
     this.$axios.post('/work/upload/auth').then(function (response) {
-      console.log(response)
       _this.uploadToken = response.data.data.token
     })
+  },
+  methods: {
+    onSuccess (res) {
+      console.log(res)
+    },
+    onFailed (code, message) {
+      console.log('submit')
+      console.log(message)
+    }
   }
 }
 </script>

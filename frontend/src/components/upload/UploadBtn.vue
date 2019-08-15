@@ -1,6 +1,6 @@
 <template>
-  <div class="upload upload_border" @click="clickSelectFile">
-    <div class="upload_guide">
+  <div class="upload upload_border">
+    <div class="upload_guide" @click="clickSelectFile">
       <img src="../../assets/img/upload/ic_upload_new_pic.png" alt="Upload"/>
       <div>
         Drop your image here or
@@ -35,12 +35,12 @@ export default {
   name: 'UploadBtn',
   props: {
     token: String,
-    onSuccessFun: {
+    onSuccess: {
       type: Function,
       default: function () {
       }
     },
-    onFailedFun: {
+    onFailed: {
       type: Function,
       default: function () {
       }
@@ -82,12 +82,11 @@ export default {
     onProgress: function (percent) {
       this.uploadProgress = percent
     },
-    onSuccess: function () {
-      this.onSuccessFun()
+    onSuccessFun: function (res) {
+      this.onSuccess(res)
     },
-    onFailed: function (code, message) {
-      console.log('onFail ' + code + '  ' + message)
-      this.onFailedFun()
+    onFailedFun: function (code, message) {
+      this.onFailed(code, message)
     },
     uploadImg2Qiniu: function (file, token) {
       let _this = this
@@ -107,10 +106,10 @@ export default {
           _this.onProgress(res.total.percent)
         },
         error (err) {
-          _this.onFailed(err.code, err.message)
+          _this.onFailedFun(err.code, err.message)
         },
         complete (res) {
-          _this.onSuccess(res)
+          _this.onSuccessFun(res)
         }
       })
     }

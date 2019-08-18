@@ -55,11 +55,6 @@
             <version>1.2.12</version>
         </dependency>
         <dependency>
-            <groupId>org.mybatis.generator</groupId>
-            <artifactId>mybatis-generator</artifactId>
-            <version>1.3.7</version>
-        </dependency>
-        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
@@ -97,17 +92,14 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.5</version>
-                <configuration>
-                    <configurationFile>src/main/resources/mybatis/generator/generatorConfig.xml</configurationFile>
-                    <overwrite>true</overwrite>
-                    <verbose>true</verbose>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
 </project>

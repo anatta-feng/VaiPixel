@@ -53,7 +53,9 @@ export default {
         description: '',
         tags: [],
         classify: '',
-        equipment: {},
+        equipment: {
+
+        },
         type: 'photo'
       }
     }

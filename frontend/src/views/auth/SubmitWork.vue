@@ -68,6 +68,7 @@ export default {
   },
   methods: {
     onSuccess (res) {
+      // TODO turn to page for next upload or finish load
       console.log(res)
     },
     onFailed (code, message) {

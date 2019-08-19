@@ -72,6 +72,7 @@ export default {
       console.log(res)
     },
     onFailed (code, message) {
+      // TODO alert error
       console.log('submit')
       console.log(message)
     }

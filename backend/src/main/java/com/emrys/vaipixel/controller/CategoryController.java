@@ -6,14 +6,19 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import static com.emrys.vaipixel.constant.Constant.Params.*;
-import static com.emrys.vaipixel.constant.Constant.Params.DEFAULT_PAGE_SIZE;
 
+@RestController
 public class CategoryController extends BaseV1Controller {
 
-    @Autowired
     private IWorksService worksService;
+
+    @Autowired
+    public void setWorksService(IWorksService worksService) {
+        this.worksService = worksService;
+    }
 
     @RequestMapping("/categories")
     public PageInfo<Category> categories(

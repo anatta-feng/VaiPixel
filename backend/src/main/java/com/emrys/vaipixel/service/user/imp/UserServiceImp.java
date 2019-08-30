@@ -13,7 +13,7 @@ import static com.emrys.vaipixel.constant.Constant.ErrorStatus.FAIL_REQUEST_PARA
 import static com.emrys.vaipixel.constant.Constant.ErrorStatus.FAIL_USER_LOGIN_ERROR;
 
 @Service
-public class UserServiceImp implements IUserService {
+class UserServiceImp implements IUserService {
 
     private IUserDao userDao;
 

@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 import static com.emrys.vaipixel.constant.Constant.ErrorStatus.*;
 
 @Service
-public class WorksServiceImp implements IWorksService {
+class WorksServiceImp implements IWorksService {
 
     private IWorkDao workDao;
 

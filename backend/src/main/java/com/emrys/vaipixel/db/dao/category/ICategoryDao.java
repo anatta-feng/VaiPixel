@@ -7,6 +7,8 @@ public interface ICategoryDao {
 
     boolean isCategoryExist(Category category);
 
+    boolean isCategoryExist(String categoryName);
+
     boolean isCategoryExist(long categoryId);
 
     Category getCategoryByName(String name);
@@ -17,5 +19,5 @@ public interface ICategoryDao {
 
     void addCategory(Category category);
 
-    void addCategoryIfNotExist(Category category);
+    void addCategoryIfNotExist(String categoryName);
 }

@@ -9,13 +9,15 @@ public interface ITagDao {
 
     boolean isTagExist(long tagId);
 
+    boolean isTagExist(String tagName);
+
     Tag getTagByName(String name);
 
     Tag getTagById(long tagId);
 
     PageInfo<Tag> getTags(int pageNum, int pageSize);
 
-    void addTag(Tag tag);
+    void addTag(String tagName);
 
-    void addTagIfNotExist(Tag tag);
+    void addTagIfNotExist(String tagName);
 }

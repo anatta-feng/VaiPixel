@@ -9,6 +9,7 @@ import com.emrys.vaipixel.db.model.Category;
 import com.emrys.vaipixel.db.model.Tag;
 import com.emrys.vaipixel.db.model.Work;
 import com.emrys.vaipixel.exception.VaiException;
+import com.emrys.vaipixel.http.request.SubmitWorkRequest;
 import com.emrys.vaipixel.service.works.IWorkEditor;
 import com.emrys.vaipixel.service.works.IWorksService;
 import com.emrys.vaipixel.third.service.IThirdObjectStorageService;
@@ -67,24 +68,24 @@ class WorksServiceImp implements IWorksService {
 
     @SuppressWarnings("unchecked")
     @Override
-    public void addWork(String key, @Nullable Work work) {
-        if (work == null) {
+    public void addWork(SubmitWorkRequest submit) {
+        if (submit == null) {
             throw new VaiException(FAIL_REQUEST_PARAM);
-        } else if (workDao.isWorkExist(work)) {
-            throw new VaiException(FAIL_WORK_ALREADY_EXIST);
-        } else if (!userDao.isUserExist(work.getAuthor())) {
+        } else if (!userDao.isUserExist(submit.getAuthorId())) {
             throw new VaiException(FAIL_USER_NOT_EXIST);
         } else {
-            categoryDao.addCategoryIfNotExist(work.getCategory());
-            if (work.getTags() != null) {
-                for (Tag tag : work.getTags()) {
+            categoryDao.addCategoryIfNotExist(submit.getCategory());
+            if (submit.getTags() != null) {
+                for (String tag : submit.getTags()) {
                     tagDao.addTagIfNotExist(tag);
                 }
             }
+            Work work = new Work();
+            // TODO create work
             work.setWorkId(idWorker.nextId());
             IWorkEditor workEditor = IWorkEditor.processWork(work);
             workEditor.addWork(work);
-            objectStorageService.removeResourceDeadline(key);
+            objectStorageService.removeResourceDeadline(submit.getKey());
         }
     }
 

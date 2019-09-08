@@ -3,6 +3,7 @@ package com.emrys.vaipixel.db.mapper;
 import com.emrys.vaipixel.db.model.Photo;
 import org.apache.ibatis.annotations.*;
 
+@Mapper
 public interface PhotoMapper {
     @Select("SELECT * FROM t_work AS work INNER JOIN t_photo AS photo ON photo.work_id = work.work_id " +
             "WHERE photo.work_id = #{workId}")

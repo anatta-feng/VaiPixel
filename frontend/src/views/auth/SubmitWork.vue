@@ -23,6 +23,10 @@
               <span>描述</span>
               <input class="pic-info-input" type="text" id="description" v-model="submitParams.description"/>
             </label>
+            <label class="pic-info-label" for="classify">
+              <span>分类</span>
+              <input class="pic-info-input" type="text" id="classify" v-model="submitParams.classify"/>
+            </label>
             <label class="pic-info-label" for="tags">
               <span>标签（按"回车"键添加标签）</span>
               <input class="pic-info-input" type="text" id="tags" />
@@ -31,9 +35,9 @@
               <span>拍摄设备</span>
               <input class="pic-info-input" type="text" id="equipment" />
             </label>
-            <button class="btn-submit" type="submit">发布</button>
           </div>
         </form>
+        <button class="btn-submit" type="submit" @click="submit">发布</button>
       </div>
     </div>
   </div>
@@ -41,6 +45,7 @@
 
 <script>
 import UploadBtn from '../../components/upload/UploadBtn'
+import { submitWork } from '../../api/works'
 
 export default {
   name: 'SubmitWork',
@@ -54,7 +59,13 @@ export default {
         tags: [],
         classify: '',
         equipment: {
-
+          make: '',
+          model: '',
+          lens: '',
+          focalLength: '',
+          aperture: '',
+          iso: '',
+          shutter: ''
         },
         type: 'photo'
       }
@@ -67,6 +78,10 @@ export default {
     })
   },
   methods: {
+    submit () {
+      console.log('submit work')
+      submitWork(this.submitParams)
+    },
     onSuccess (res) {
       // TODO turn to page for next upload or finish load
       console.log(res)

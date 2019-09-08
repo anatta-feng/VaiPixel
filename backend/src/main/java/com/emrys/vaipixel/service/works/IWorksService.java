@@ -4,6 +4,7 @@ import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 import com.emrys.vaipixel.db.model.Category;
 import com.emrys.vaipixel.db.model.Tag;
 import com.emrys.vaipixel.db.model.Work;
+import com.emrys.vaipixel.http.request.SubmitWorkRequest;
 import com.github.pagehelper.PageInfo;
 
 public interface IWorksService {
@@ -11,9 +12,9 @@ public interface IWorksService {
     /**
      * 添加作品
      *
-     * @param work 待添加的作品信息
+     * @param request 待添加的作品信息
      */
-    void addWork(String key, Work work);
+    void addWork(SubmitWorkRequest request);
 
     /**
      * 根据作品 Id 删除作品

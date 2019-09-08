@@ -6,6 +6,13 @@ public class Category implements Serializable {
     private long categoryId;
     private String categoryName;
 
+    public Category() {
+    }
+
+    public Category(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
     public long getCategoryId() {
         return categoryId;
     }

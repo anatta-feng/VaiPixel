@@ -1,5 +1,6 @@
 package com.emrys.vaipixel.controller;
 
+import com.emrys.vaipixel.controller.base.BaseV1Controller;
 import com.emrys.vaipixel.db.model.Tag;
 import com.emrys.vaipixel.service.works.IWorksService;
 import com.github.pagehelper.PageInfo;

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -18,12 +19,21 @@ public class CategoryDaoImp implements ICategoryDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CategoryDaoImp.class);
 
-    @Autowired
     private CategoryMapper categoryMapper;
+
+    @Autowired
+    public CategoryDaoImp(CategoryMapper categoryMapper) {
+        this.categoryMapper = categoryMapper;
+    }
 
     @Override
     public boolean isCategoryExist(Category category) {
         return category != null && categoryMapper.getCategoryById(category.getCategoryId()) != null;
+    }
+
+    @Override
+    public boolean isCategoryExist(String categoryName) {
+        return !StringUtils.isEmpty(categoryName) && getCategoryByName(categoryName) != null;
     }
 
     @Override
@@ -54,13 +64,13 @@ public class CategoryDaoImp implements ICategoryDao {
     }
 
     @Override
-    public void addCategoryIfNotExist(Category category) {
-        if (category == null) {
+    public void addCategoryIfNotExist(String categoryName) {
+        if (StringUtils.isEmpty(categoryName)) {
             LOGGER.info("addCategoryIfNotExist category is null");
-        } else if (isCategoryExist(category)) {
+        } else if (isCategoryExist(categoryName)) {
             LOGGER.info("addCategoryIfNotExist category has exist");
         } else {
-            categoryMapper.addCategory(category);
+            categoryMapper.addCategory(new Category(categoryName));
         }
     }
 }

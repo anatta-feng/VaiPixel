@@ -2,11 +2,9 @@ package com.emrys.vaipixel.db.mapper;
 
 import com.emrys.vaipixel.db.model.User;
 import com.emrys.vaipixel.dto.cond.UserCond;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
+@Mapper
 public interface UserMapper {
     @Select("SELECT user_id, user_name, nick_name, avatar_url FROM t_user WHERE user_id = #{id}")
     User getUserById(@Param("id") long id);

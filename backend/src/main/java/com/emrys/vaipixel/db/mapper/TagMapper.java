@@ -3,10 +3,12 @@ package com.emrys.vaipixel.db.mapper;
 import com.emrys.vaipixel.db.model.Tag;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
+@Mapper
 public interface TagMapper {
 
     @Select("SELECT * FROM t_tag ")
@@ -23,6 +25,9 @@ public interface TagMapper {
 
     @Insert("INSERT INTO t_tag(tag_name) VALUES (#{tagName})")
     void addTag(Tag tag);
+
+    @Insert("INSERT INTO t_tag(tag_name) VALUES (#{tagName})")
+    void addTag(String tagName);
 
     @Insert("INSERT INTO t_relation_work_tag(work_id, tag_id) VALUES (#{workId}, #{tagId})")
     void addTagWorkRelation(long workId, long tagId);

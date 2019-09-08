@@ -1,5 +1,6 @@
 package com.emrys.vaipixel.controller;
 
+import com.emrys.vaipixel.controller.base.BaseV1Controller;
 import com.emrys.vaipixel.http.request.LoginRequest;
 import com.emrys.vaipixel.http.response.LoginResponse;
 import org.springframework.web.bind.annotation.RequestMapping;

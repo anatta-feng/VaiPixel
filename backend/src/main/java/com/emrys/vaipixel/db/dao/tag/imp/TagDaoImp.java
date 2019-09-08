@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -17,8 +18,12 @@ public class TagDaoImp implements ITagDao {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TagDaoImp.class);
 
-    @Autowired
     private TagMapper tagMapper;
+
+    @Autowired
+    public TagDaoImp(TagMapper tagMapper) {
+        this.tagMapper = tagMapper;
+    }
 
     @Override
     public boolean isTagExist(Tag tag) {
@@ -28,6 +33,11 @@ public class TagDaoImp implements ITagDao {
     @Override
     public boolean isTagExist(long tagId) {
         return tagMapper.getTagById(tagId) != null;
+    }
+
+    @Override
+    public boolean isTagExist(String tagName) {
+        return !StringUtils.isEmpty(tagName) && getTagByName(tagName) != null;
     }
 
     @Override
@@ -48,18 +58,18 @@ public class TagDaoImp implements ITagDao {
     }
 
     @Override
-    public void addTag(Tag tag) {
-        tagMapper.addTag(tag);
+    public void addTag(String tagName) {
+        tagMapper.addTag(tagName);
     }
 
     @Override
-    public void addTagIfNotExist(Tag tag) {
-        if (tag == null) {
+    public void addTagIfNotExist(String tagName) {
+        if (StringUtils.isEmpty(tagName)) {
             LOGGER.info("addTagIfNotExist tag is null");
-        } else if (isTagExist(tag)) {
+        } else if (isTagExist(tagName)) {
             LOGGER.info("addTagIfNotExist tag has exist");
         } else {
-            tagMapper.addTag(tag);
+            tagMapper.addTag(tagName);
         }
     }
 }

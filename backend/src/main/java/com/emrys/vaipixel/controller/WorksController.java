@@ -1,5 +1,6 @@
 package com.emrys.vaipixel.controller;
 
+import com.emrys.vaipixel.controller.base.BaseV1Controller;
 import com.emrys.vaipixel.db.model.Work;
 import com.emrys.vaipixel.exception.VaiException;
 import com.emrys.vaipixel.http.request.SubmitWorkRequest;
@@ -61,15 +62,15 @@ public class WorksController extends BaseV1Controller {
         return new UploadAuthResponse(token);
     }
 
-    @RequestMapping(value = "/work/submit", method = RequestMethod.POST)
+    @RequestMapping(value = "/work/submit", method = RequestMethod.PUT)
     @ResponseBody
-    public String submitWork(SubmitWorkRequest request) {
+    public String submitWork(@RequestBody SubmitWorkRequest request) {
         if (request == null) {
             throw VaiException.withStatus(FAIL_REQUEST_PARAM);
         } else if (StringUtils.isEmpty(request.getKey())) {
             throw VaiException.withStatus(FAIL_WORK_KEY_ERROR);
         } else {
-            worksService.addWork(request.getKey(), request.getWork());
+            worksService.addWork(request);
             return "";
         }
     }

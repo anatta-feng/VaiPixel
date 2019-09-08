@@ -26,4 +26,9 @@ public class TagMapperTest extends BaseTest {
         tag.setTagName(RandomString.make(2));
         tagMapper.addTag(tag);
     }
+
+    @Test
+    public void testInsertBuName() {
+        tagMapper.addTag("Demo");
+    }
 }

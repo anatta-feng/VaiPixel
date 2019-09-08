@@ -3,6 +3,7 @@ package com.emrys.vaipixel.db.mapper;
 import com.emrys.vaipixel.db.model.Video;
 import org.apache.ibatis.annotations.*;
 
+@Mapper
 public interface VideoMapper {
 
     @Select("SELECT * FROM t_work AS work INNER JOIN t_video AS video ON video.work_id = work.work_id " +

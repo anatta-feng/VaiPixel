@@ -59,7 +59,7 @@ public class TagDaoImp implements ITagDao {
 
     @Override
     public void addTag(String tagName) {
-        tagMapper.addTag(tagName);
+        tagMapper.addTagByName(tagName);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class TagDaoImp implements ITagDao {
         } else if (isTagExist(tagName)) {
             LOGGER.info("addTagIfNotExist tag has exist");
         } else {
-            tagMapper.addTag(tagName);
+            tagMapper.addTagByName(tagName);
         }
     }
 }

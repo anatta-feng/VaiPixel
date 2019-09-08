@@ -27,7 +27,7 @@ public interface TagMapper {
     void addTag(Tag tag);
 
     @Insert("INSERT INTO t_tag(tag_name) VALUES (#{tagName})")
-    void addTag(String tagName);
+    void addTagByName(String tagName);
 
     @Insert("INSERT INTO t_relation_work_tag(work_id, tag_id) VALUES (#{workId}, #{tagId})")
     void addTagWorkRelation(long workId, long tagId);

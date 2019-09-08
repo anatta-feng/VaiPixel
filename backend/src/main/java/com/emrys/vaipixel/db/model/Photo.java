@@ -8,6 +8,7 @@ public class Photo extends Work {
     @JsonIgnore
     private long photoId;
     private CameraParameter cameraParameter;
+    private String color;
 
     public Photo() {
         setType(photo);
@@ -29,11 +30,20 @@ public class Photo extends Work {
         this.cameraParameter = cameraParameter;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     @Override
     public String toString() {
         return "Photo{" +
                 "photoId=" + photoId +
                 ", cameraParameter=" + cameraParameter +
-                "} " + super.toString();
+                ", color='" + color + '\'' +
+                '}';
     }
 }

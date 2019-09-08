@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-class VideoEditorImp implements IWorkEditor<Video> {
+public class VideoEditorImp implements IWorkEditor<Video> {
 
     private IWorkDao workDao;
 

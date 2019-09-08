@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-class PhotoEditorImp implements IWorkEditor<Photo> {
+public class PhotoEditorImp implements IWorkEditor<Photo> {
 
     private IWorkDao workDao;
 

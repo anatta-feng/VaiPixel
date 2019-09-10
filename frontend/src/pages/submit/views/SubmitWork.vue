@@ -44,11 +44,12 @@
 </template>
 
 <script>
-import UploadBtn from '../../components/upload/UploadBtn'
-import { submitWork } from '../../api/works'
+import UploadBtn from '@/components/upload/UploadBtn'
+import { submitWork } from '@/api/works'
+import { getUploadToken } from '@/api/author'
 
 export default {
-  name: 'SubmitWork',
+  name: 'submitWork',
   components: { UploadBtn },
   data () {
     return {
@@ -73,7 +74,7 @@ export default {
   },
   created () {
     let _this = this
-    this.$axios.post('/work/upload/auth').then(function (response) {
+    getUploadToken().then(function (response) {
       _this.uploadToken = response.data.data.token
     })
   },
@@ -96,84 +97,84 @@ export default {
 </script>
 
 <style lang="scss">
-.submit-root {
-  text-align: left;
-}
-.submit-group {
-  display: flex;
-  justify-content: space-between;
-}
+  .submit-root {
+    text-align: left;
+  }
+  .submit-group {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.submit-title {
-  margin: 2rem 0 0 1rem;
-}
+  .submit-title {
+    margin: 2rem 0 0 1rem;
+  }
 
-.submit-title h4 {
-  font-size: 1rem;
-}
+  .submit-title h4 {
+    font-size: 1rem;
+  }
 
-.submit-select-group {
-  flex: 7;
-  background-color: white;
-  border-radius: 0.2rem;
-  box-shadow: 0 0.15rem 0.3rem 0 rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-}
+  .submit-select-group {
+    flex: 7;
+    background-color: white;
+    border-radius: 0.2rem;
+    box-shadow: 0 0.15rem 0.3rem 0 rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+  }
 
-.submit-select {
-  width: 100%;
-  height: 100%;
-}
+  .submit-select {
+    width: 100%;
+    height: 100%;
+  }
 
-.submit-info-group {
-  flex: 3;
-  margin-left: 0.8rem;
-  background-color: white;
-  border-radius: 0.2rem;
-  padding: 0.8rem;
-  box-shadow: 0 0.15rem 0.3rem 0 rgba(0, 0, 0, 0.2);
-}
+  .submit-info-group {
+    flex: 3;
+    margin-left: 0.8rem;
+    background-color: white;
+    border-radius: 0.2rem;
+    padding: 0.8rem;
+    box-shadow: 0 0.15rem 0.3rem 0 rgba(0, 0, 0, 0.2);
+  }
 
-.pic-info-label {
-  width: 100%;
-  margin-top: 0.8rem;
-}
+  .pic-info-label {
+    width: 100%;
+    margin-top: 0.8rem;
+  }
 
-.pic-info-label span {
-  color: #4b4b4b;
-  font-size: 0.6rem;
-  line-height: 0.8rem;
-  font-weight: 600;
-}
+  .pic-info-label span {
+    color: #4b4b4b;
+    font-size: 0.6rem;
+    line-height: 0.8rem;
+    font-weight: 600;
+  }
 
-.pic-info-label input {
-  margin-top: 0.5rem;
-}
+  .pic-info-label input {
+    margin-top: 0.5rem;
+  }
 
-.pic-info-input {
-  width: 100%;
-  background: #fff;
-  box-sizing: border-box;
-  border-radius: 0.2rem;
-  border: 0.5px solid #dfdfdf;
-  padding: 0.6rem;
-  margin: 0;
-  color: #4b4b4b;
-  font-weight: 400;
-  font-size: 0.6rem;
-  line-height: 0.8rem;
-}
+  .pic-info-input {
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 0.2rem;
+    border: 0.5px solid #dfdfdf;
+    padding: 0.6rem;
+    margin: 0;
+    color: #4b4b4b;
+    font-weight: 400;
+    font-size: 0.6rem;
+    line-height: 0.8rem;
+  }
 
-.btn-submit {
-  background-color: #1088f2;
-  color: #fff;
-  padding: 0 1rem;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: .9rem;
-  border-radius: 0.3rem;
-  width: 100%;
-  height: 2.5rem;
-  margin-top: 0.8rem;
-}
+  .btn-submit {
+    background-color: #1088f2;
+    color: #fff;
+    padding: 0 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .9rem;
+    border-radius: 0.3rem;
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 0.8rem;
+  }
 </style>

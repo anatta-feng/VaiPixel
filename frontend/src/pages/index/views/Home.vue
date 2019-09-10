@@ -1,13 +1,12 @@
 <template>
   <div>
-    <router-view></router-view>
-    <router-link :to="{name:'add'}">添加</router-link>
+    Home
   </div>
 </template>
 
 <script>
 export default {
-  name: 'User'
+  name: 'Home'
 }
 </script>
 

@@ -1,5 +1,6 @@
 package com.emrys.vaipixel.third.callbackcontroller;
 
+import com.emrys.vaipixel.third.callbackcontroller.request.QiniuCloudCallbackRequest;
 import com.emrys.vaipixel.third.service.IThirdObjectStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,9 +19,8 @@ public class QiniuCloudCallbackController {
     }
 
     @RequestMapping(value = "callback/qiniuCloud/upload", method = RequestMethod.POST)
-    public QiniuCloudCallbackPojo callback(@RequestBody QiniuCloudCallbackPojo  pojo) {
-        System.out.println(pojo);
-        objectStorageService.setResourceDeadline(pojo.getKey(), 3600);
-        return pojo;
+    public QiniuCloudCallbackResponse callback(@RequestBody QiniuCloudCallbackRequest request) {
+        objectStorageService.setResourceDeadline(request.getKey(), 3600);
+        return QiniuCloudCallbackUtils.createQiniuCloudCallbackResponse(request);
     }
 }

@@ -18,7 +18,7 @@ class QiniuCloudServiceImp implements IThirdObjectStorageService {
 
     private Auth auth;
 
-    private String callbackUrl = "http://92ed6c0d.ngrok.io/callback/qiniuCloud/upload";
+    private String callbackUrl = "http://bf2fd3ec.ngrok.io/callback/qiniuCloud/upload";
     private String callbackBodyType = "application/json";
 
     private long expireSeconds = 10000;
@@ -28,6 +28,7 @@ class QiniuCloudServiceImp implements IThirdObjectStorageService {
             "\"hash\":\"$(etag)\"," +
             "\"bucket\":\"$(bucket)\"," +
             "\"fsize\":$(fsize)," +
+            "\"imageAve\":${imageAve}" +
             "\"exif\":${exif}" +
             "}";
 
@@ -36,6 +37,7 @@ class QiniuCloudServiceImp implements IThirdObjectStorageService {
             "\"hash\":\"$(etag)\"," +
             "\"bucket\":\"$(bucket)\"," +
             "\"fsize\":$(fsize)," +
+            "\"imageAve\":${imageAve}" +
             "\"exif\":${exif}" +
             "}";
 

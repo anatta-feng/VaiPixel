@@ -1,6 +1,6 @@
-package com.emrys.vaipixel.third.callbackcontroller;
+package com.emrys.vaipixel.third.callbackcontroller.request;
 
-public class QiniuCloudCallbackPojo {
+public class QiniuCloudCallbackRequest {
 
     /**
      * key : DSC02064.jpg
@@ -14,6 +14,7 @@ public class QiniuCloudCallbackPojo {
     private String hash;
     private String bucket;
     private int fsize;
+    private ImageAve imageAve;
     private ExifInfo exif;
 
     public String getKey() {
@@ -38,6 +39,14 @@ public class QiniuCloudCallbackPojo {
 
     public void setBucket(String bucket) {
         this.bucket = bucket;
+    }
+
+    public ImageAve getImageAve() {
+        return imageAve;
+    }
+
+    public void setImageAve(ImageAve imageAve) {
+        this.imageAve = imageAve;
     }
 
     public int getFsize() {

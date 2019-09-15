@@ -1,5 +1,6 @@
-package com.emrys.vaipixel.third.callbackcontroller;
+package com.emrys.vaipixel.third.callbackcontroller.request;
 
+import com.emrys.vaipixel.third.callbackcontroller.TypeValInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ExifInfo {

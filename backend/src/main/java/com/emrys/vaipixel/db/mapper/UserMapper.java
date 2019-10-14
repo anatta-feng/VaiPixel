@@ -6,14 +6,14 @@ import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface UserMapper {
-    @Select("SELECT user_id, user_name, nick_name, avatar_url FROM t_user WHERE user_id = #{id}")
+    @Select("SELECT id, user_name, nick_name, avatar_url FROM t_user WHERE id = #{id}")
     User getUserById(@Param("id") long id);
 
-    @Insert("INSERT INTO t_user(user_id, user_name, nick_name, avatar_url, email, password) " +
+    @Insert("INSERT INTO t_user(id, user_name, nick_name, avatar_url, email, password) " +
             "VALUES (#{userId}, #{userName}, #{nickName}, #{avatarUrl}, #{email}, #{password})")
     void addUser(User user);
 
-    @Delete("DELETE FROM t_user WHERE user_id = #{id}")
+    @Delete("DELETE FROM t_user WHERE id = #{id}")
     void deleteUserById(long id);
 
     User getUserInfoByCond(@Param("userName") String userName, @Param("password") String password);

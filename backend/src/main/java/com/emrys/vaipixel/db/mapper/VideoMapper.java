@@ -6,13 +6,13 @@ import org.apache.ibatis.annotations.*;
 @Mapper
 public interface VideoMapper {
 
-    @Select("SELECT * FROM t_work AS work INNER JOIN t_video AS video ON video.work_id = work.work_id " +
+    @Select("SELECT * FROM t_work AS work INNER JOIN t_video AS video ON video.work_id = work.id " +
             "WHERE video.work_id = #{work_id}")
     @Results({
             @Result(column = "author_id", property = "author", one = @One(select = "com.emrys.vaipixel.db.mapper.UserMapper.getUserById")),
             @Result(column = "category_id", property = "category", one = @One(select = "com.emrys.vaipixel.db.mapper.CategoryMapper.getCategoryById")),
             @Result(column = "work_id", property = "tags", many = @Many(select = "com.emrys.vaipixel.db.mapper.TagMapper.getWorkTags")),
-            @Result(column = "work_id", property = "workId"),
+            @Result(column = "id", property = "workId"),
             @Result(column = "large_url", property = "image.largeUrl"),
             @Result(column = "medium_url", property = "image.mediumUrl"),
             @Result(column = "small_url", property = "image.smallUrl"),

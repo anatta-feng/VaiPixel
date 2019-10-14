@@ -28,7 +28,7 @@ public class CategoryDaoImp implements ICategoryDao {
 
     @Override
     public boolean isCategoryExist(Category category) {
-        return category != null && categoryMapper.getCategoryById(category.getCategoryId()) != null;
+        return category != null && categoryMapper.getCategoryById(category.getId()) != null;
     }
 
     @Override

@@ -27,7 +27,7 @@ public class TagDaoImp implements ITagDao {
 
     @Override
     public boolean isTagExist(Tag tag) {
-        return tag != null && tagMapper.getTagById(tag.getTagId()) != null;
+        return tag != null && tagMapper.getTagById(tag.getId()) != null;
     }
 
     @Override

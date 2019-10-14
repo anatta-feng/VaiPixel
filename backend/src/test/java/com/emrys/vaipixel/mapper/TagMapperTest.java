@@ -23,7 +23,7 @@ public class TagMapperTest extends BaseTest {
     @Test
     public void testInsert() {
         Tag tag = new Tag();
-        tag.setTagName(RandomString.make(2));
+        tag.setName(RandomString.make(2));
         tagMapper.addTag(tag);
     }
 

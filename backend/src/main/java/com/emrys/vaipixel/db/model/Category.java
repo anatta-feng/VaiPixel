@@ -1,39 +1,18 @@
 package com.emrys.vaipixel.db.model;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
+@Data
 public class Category implements Serializable {
-    private long categoryId;
-    private String categoryName;
+    private long id;
+    private String name;
 
     public Category() {
     }
 
-    public Category(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(long categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    @Override
-    public String toString() {
-        return "Category{" +
-                "categoryId=" + categoryId +
-                ", categoryName='" + categoryName + '\'' +
-                '}';
+    public Category(String name) {
+        this.name = name;
     }
 }

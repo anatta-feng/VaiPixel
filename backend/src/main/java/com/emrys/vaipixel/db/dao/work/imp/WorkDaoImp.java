@@ -30,7 +30,7 @@ public class WorkDaoImp implements IWorkDao {
 
     @Override
     public boolean isWorkExist(Work work) {
-        return work == null || workMapper.getWorkById(work.getWorkId()) != null;
+        return work == null || workMapper.getWorkById(work.getId()) != null;
     }
 
     @Override

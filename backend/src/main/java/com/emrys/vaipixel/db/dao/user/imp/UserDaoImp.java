@@ -18,7 +18,7 @@ public class UserDaoImp implements IUserDao {
 
     @Override
     public boolean isUserExist(User user) {
-        return user != null && userMapper.getUserById(user.getUserId()) != null;
+        return user != null && userMapper.getUserById(user.getId()) != null;
     }
 
     @Override

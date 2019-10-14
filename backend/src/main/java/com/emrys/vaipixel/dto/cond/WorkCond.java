@@ -14,7 +14,7 @@ public class WorkCond {
     private String sc;
 
     public enum Order {
-        ID("work_id"),
+        ID("id"),
         CREATE_TIME("created_time"),
         UPDATE_TIME("updated_time"),
         LIKE("like_count"),

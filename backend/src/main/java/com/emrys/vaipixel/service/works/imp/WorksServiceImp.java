@@ -82,7 +82,7 @@ class WorksServiceImp implements IWorksService {
             }
             Work work = new Work();
             // TODO create work
-            work.setWorkId(idWorker.nextId());
+            work.setId(idWorker.nextId());
             IWorkEditor workEditor = IWorkEditor.processWork(work);
             workEditor.addWork(work);
             objectStorageService.removeResourceDeadline(submit.getKey());

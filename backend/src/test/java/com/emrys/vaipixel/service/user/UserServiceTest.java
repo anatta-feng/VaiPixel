@@ -32,7 +32,7 @@ public class UserServiceTest extends BaseTest {
     @Test
     public void addUser() {
         User user = new User();
-        user.setUserId(RandomUtils.nextLong(0, 99999));
+        user.setId(RandomUtils.nextLong(0, 99999));
         user.setUserName("Emrys");
         user.setEmail("1@fxcdev.com");
         user.setNickName("Emrys");

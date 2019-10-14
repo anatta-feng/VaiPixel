@@ -17,7 +17,7 @@ public class CategoryMapperTest extends BaseTest {
     @Test
     public void testInsert() {
         Category category = new Category();
-        category.setCategoryName(String.valueOf(RandomString.make(3)));
+        category.setName(String.valueOf(RandomString.make(3)));
         categoryMapper.addCategory(category);
     }
 }

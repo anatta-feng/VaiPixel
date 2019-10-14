@@ -44,11 +44,11 @@ public class WorkMapperTest extends BaseTest {
     @Test
     public void testInsert() {
         Photo photo = new Photo();
-        photo.setWorkId(idWorker.nextId());
+        photo.setId(idWorker.nextId());
         Category category = new Category();
-        category.setCategoryId(1);
+        category.setId(1);
         User user = new User();
-        user.setUserId(1);
+        user.setId(1);
         photo.setCategory(category);
         photo.setAuthor(user);
         photo.setTitle("PhotoTest");
@@ -61,7 +61,7 @@ public class WorkMapperTest extends BaseTest {
 
 
         Video video = new Video();
-        video.setWorkId(idWorker.nextId());
+        video.setId(idWorker.nextId());
         video.setCategory(category);
         video.setAuthor(user);
         video.setTitle("VideoTest");
@@ -79,7 +79,7 @@ public class WorkMapperTest extends BaseTest {
     public void testCond() {
         WorkCond.Builder builder = new WorkCond.Builder();
         WorkCond build = builder
-                .withCategoryId(1L)
+                .withCategoryId(9L)
                 .withOrderBy(WorkCond.Order.ID, WorkCond.SC.ASC)
                 .build();
         List<Work> worksByCond = workMapper.getWorksByCond(build);

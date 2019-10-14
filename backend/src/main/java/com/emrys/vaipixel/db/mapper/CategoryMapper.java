@@ -14,15 +14,15 @@ public interface CategoryMapper {
     @Select("SELECT * FROM t_category ")
     List<Category> getAllCategory();
 
-    @Select("SELECT * FROM t_category WHERE category_id = #{id}")
+    @Select("SELECT * FROM t_category WHERE id = #{id}")
     Category getCategoryById(long id);
 
-    @Select("SELECT * FROM t_category WHERE category_name = #{name}")
+    @Select("SELECT * FROM t_category WHERE name = #{name}")
     Category getCategoryByName(String name);
 
-    @Insert("INSERT INTO t_category(category_name) VALUES (#{categoryName})")
+    @Insert("INSERT INTO t_category(name) VALUES (#{categoryName})")
     void addCategory(Category category);
 
-    @Delete("DELETE FROM t_category WHERE category_id = #{id}")
+    @Delete("DELETE FROM t_category WHERE id = #{id}")
     void deleteCategoryById(long id);
 }

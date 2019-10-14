@@ -4,7 +4,7 @@
 
 
     <resultMap id="WorkResultMap" type="com.emrys.vaipixel.db.model.Work">
-        <id column="work_id" property="workId"/>
+        <id column="id" property="workId"/>
         <result column="large_url" property="image.largeUrl"/>
         <result column="medium_url" property="image.mediumUrl"/>
         <result column="small_url" property="image.smallUrl"/>
@@ -13,7 +13,7 @@
         select="com.emrys.vaipixel.db.mapper.UserMapper.getUserById"/>
         <association property="category" column="category_id"
         select="com.emrys.vaipixel.db.mapper.CategoryMapper.getCategoryById"/>
-        <collection property="tags" column="work_id"
+        <collection property="tags" column="id"
         select="com.emrys.vaipixel.db.mapper.TagMapper.getWorkTags"/>
         <discriminator javaType="com.emrys.vaipixel.db.enums.WorkTypeEnum" column="type">
             <case value="photo" resultType="com.emrys.vaipixel.db.model.Photo">
@@ -40,7 +40,7 @@
         t_video
     </sql>
     <sql id="BASE_COLUMN">
-        work.work_id, title, description, created_time, updated_time, width, height, type, large_url, medium_url, small_url,
+        work.id, title, description, created_time, updated_time, width, height, type, large_url, medium_url, small_url,
         thumb_url, category_id, author_id, like_count, page_view, user_view
     </sql>
 
@@ -55,12 +55,12 @@
         LEFT JOIN
         <include refid="PHOTO_TABLE"/>
         AS photo
-        ON photo.work_id = work.work_id
+        ON photo.work_id = work.id
 
         LEFT JOIN
         <include refid="VIDEO_TABLE"></include>
         AS video
-        ON video.work_id = work.work_id
+        ON video.work_id = work.id
 
         <where>1 = 1
             <if test="categoryId != null">

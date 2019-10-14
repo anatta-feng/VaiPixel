@@ -14,24 +14,24 @@ public interface TagMapper {
     @Select("SELECT * FROM t_tag ")
     List<Tag> getAllTag();
 
-    @Select("SELECT * FROM t_tag AS t INNER JOIN t_relation_work_tag AS r ON t.tag_id = r.tag_id WHERE r.work_id = #{workId}")
+    @Select("SELECT * FROM t_tag AS t INNER JOIN t_relation_work_tag AS r ON t.id = r.tag_id WHERE r.work_id = #{workId}")
     List<Tag> getWorkTags(long workId);
 
-    @Select("SELECT * FROM t_tag WHERE tag_id = #{id}")
+    @Select("SELECT * FROM t_tag WHERE id = #{id}")
     Tag getTagById(long id);
 
-    @Select("SELECT * FROM t_tag WHERE tag_name = #{name}")
+    @Select("SELECT * FROM t_tag WHERE name = #{name}")
     Tag getTagByName(String name);
 
-    @Insert("INSERT INTO t_tag(tag_name) VALUES (#{tagName})")
+    @Insert("INSERT INTO t_tag(name) VALUES (#{tagName})")
     void addTag(Tag tag);
 
-    @Insert("INSERT INTO t_tag(tag_name) VALUES (#{tagName})")
+    @Insert("INSERT INTO t_tag(name) VALUES (#{tagName})")
     void addTagByName(String tagName);
 
     @Insert("INSERT INTO t_relation_work_tag(work_id, tag_id) VALUES (#{workId}, #{tagId})")
     void addTagWorkRelation(long workId, long tagId);
 
-    @Delete("DELETE FROM t_tag WHERE tag_id = #{id}")
+    @Delete("DELETE FROM t_tag WHERE id = #{id}")
     void deleteTagById(long id);
 }

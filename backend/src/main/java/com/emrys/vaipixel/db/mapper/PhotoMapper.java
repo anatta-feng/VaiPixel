@@ -11,7 +11,7 @@ public interface PhotoMapper {
             @Result(column = "author_id", property = "author", one = @One(select = "com.emrys.vaipixel.db.mapper.UserMapper.getUserById")),
             @Result(column = "category_id", property = "category", one = @One(select = "com.emrys.vaipixel.db.mapper.CategoryMapper.getCategoryById")),
             @Result(column = "work_id", property = "tags", many = @Many(select = "com.emrys.vaipixel.db.mapper.TagMapper.getWorkTags")),
-            @Result(column = "work_id", property = "workId"),
+            @Result(column = "work_id", property = "id"),
             @Result(column = "large_url", property = "image.largeUrl"),
             @Result(column = "medium_url", property = "image.mediumUrl"),
             @Result(column = "small_url", property = "image.smallUrl"),

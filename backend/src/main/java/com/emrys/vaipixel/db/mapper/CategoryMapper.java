@@ -20,7 +20,7 @@ public interface CategoryMapper {
     @Select("SELECT * FROM t_category WHERE name = #{name}")
     Category getCategoryByName(String name);
 
-    @Insert("INSERT INTO t_category(name) VALUES (#{categoryName})")
+    @Insert("INSERT INTO t_category(name) VALUES (#{name})")
     void addCategory(Category category);
 
     @Delete("DELETE FROM t_category WHERE id = #{id}")

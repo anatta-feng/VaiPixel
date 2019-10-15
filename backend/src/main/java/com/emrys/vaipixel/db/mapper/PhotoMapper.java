@@ -5,12 +5,12 @@ import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface PhotoMapper {
-    @Select("SELECT * FROM t_work AS work INNER JOIN t_photo AS photo ON photo.work_id = work.work_id " +
+    @Select("SELECT * FROM t_work AS work INNER JOIN t_photo AS photo ON photo.work_id = work.id " +
             "WHERE photo.work_id = #{workId}")
     @Results({
             @Result(column = "author_id", property = "author", one = @One(select = "com.emrys.vaipixel.db.mapper.UserMapper.getUserById")),
             @Result(column = "category_id", property = "category", one = @One(select = "com.emrys.vaipixel.db.mapper.CategoryMapper.getCategoryById")),
-            @Result(column = "work_id", property = "tags", many = @Many(select = "com.emrys.vaipixel.db.mapper.TagMapper.getWorkTags")),
+            @Result(column = "id", property = "tags", many = @Many(select = "com.emrys.vaipixel.db.mapper.TagMapper.getWorkTags")),
             @Result(column = "work_id", property = "id"),
             @Result(column = "large_url", property = "image.largeUrl"),
             @Result(column = "medium_url", property = "image.mediumUrl"),

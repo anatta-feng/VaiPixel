@@ -10,7 +10,7 @@ public interface UserMapper {
     User getUserById(@Param("id") long id);
 
     @Insert("INSERT INTO t_user(id, user_name, nick_name, avatar_url, email, password) " +
-            "VALUES (#{userId}, #{userName}, #{nickName}, #{avatarUrl}, #{email}, #{password})")
+            "VALUES (#{id}, #{userName}, #{nickName}, #{avatarUrl}, #{email}, #{password})")
     void addUser(User user);
 
     @Delete("DELETE FROM t_user WHERE id = #{id}")

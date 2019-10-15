@@ -2,6 +2,7 @@ package com.emrys.vaipixel.service.user;
 
 import com.emrys.vaipixel.BaseTest;
 import com.emrys.vaipixel.db.model.User;
+import net.bytebuddy.utility.RandomString;
 import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class UserServiceTest extends BaseTest {
     public void addUser() {
         User user = new User();
         user.setId(RandomUtils.nextLong(0, 99999));
-        user.setUserName("Emrys");
+        user.setUserName(RandomString.make(5));
         user.setEmail("1@fxcdev.com");
         user.setNickName("Emrys");
         user.setAvatarUrl("sad");

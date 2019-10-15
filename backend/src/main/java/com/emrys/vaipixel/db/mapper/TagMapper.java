@@ -23,10 +23,10 @@ public interface TagMapper {
     @Select("SELECT * FROM t_tag WHERE name = #{name}")
     Tag getTagByName(String name);
 
-    @Insert("INSERT INTO t_tag(name) VALUES (#{tagName})")
+    @Insert("INSERT INTO t_tag(name) VALUES (#{name})")
     void addTag(Tag tag);
 
-    @Insert("INSERT INTO t_tag(name) VALUES (#{tagName})")
+    @Insert("INSERT INTO t_tag(name) VALUES (#{name})")
     void addTagByName(String tagName);
 
     @Insert("INSERT INTO t_relation_work_tag(work_id, tag_id) VALUES (#{workId}, #{tagId})")

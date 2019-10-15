@@ -9,6 +9,8 @@ import static com.emrys.vaipixel.db.enums.WorkTypeEnum.video;
 public class Video extends Work {
     @JsonIgnore
     private long videoId;
+    @JsonIgnore
+    private long workId;
     private String deviceName;
     private String playUrl;
 

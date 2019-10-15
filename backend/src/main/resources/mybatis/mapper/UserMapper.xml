@@ -6,7 +6,7 @@
     </sql>
 
     <sql id="BASE_COLUMN">
-        user_id, user_name, nick_name, avatar_url, email
+        id, user_name, nick_name, avatar_url, email
     </sql>
 
     <select id="getUserInfoByCond" resultType="com.emrys.vaipixel.db.model.User">

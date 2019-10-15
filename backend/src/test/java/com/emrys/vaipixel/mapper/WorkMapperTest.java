@@ -1,7 +1,6 @@
 package com.emrys.vaipixel.mapper;
 
 import com.emrys.vaipixel.BaseTest;
-import com.emrys.vaipixel.db.enums.WorkTypeEnum;
 import com.emrys.vaipixel.db.mapper.PhotoMapper;
 import com.emrys.vaipixel.db.mapper.UserMapper;
 import com.emrys.vaipixel.db.mapper.VideoMapper;
@@ -10,7 +9,6 @@ import com.emrys.vaipixel.db.model.*;
 import com.emrys.vaipixel.dto.cond.WorkCond;
 import com.emrys.vaipixel.utils.SnowflakeIdWorker;
 import net.bytebuddy.utility.RandomString;
-import org.apache.commons.lang3.RandomUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -45,8 +43,9 @@ public class WorkMapperTest extends BaseTest {
     public void testInsert() {
         Photo photo = new Photo();
         photo.setId(idWorker.nextId());
+        photo.setWorkId(photo.getId());
         Category category = new Category();
-        category.setId(1);
+        category.setId(9);
         User user = new User();
         user.setId(1);
         photo.setCategory(category);
@@ -59,9 +58,9 @@ public class WorkMapperTest extends BaseTest {
         workMapper.insertWork(photo);
         photoMapper.insertPhoto(photo);
 
-
         Video video = new Video();
         video.setId(idWorker.nextId());
+        video.setWorkId(video.getId());
         video.setCategory(category);
         video.setAuthor(user);
         video.setTitle("VideoTest");

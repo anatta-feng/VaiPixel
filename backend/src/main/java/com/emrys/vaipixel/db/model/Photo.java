@@ -9,6 +9,8 @@ import static com.emrys.vaipixel.db.enums.WorkTypeEnum.photo;
 public class Photo extends Work {
     @JsonIgnore
     private long photoId;
+    @JsonIgnore
+    private long workId;
     private CameraParameter cameraParameter;
     private String color;
 

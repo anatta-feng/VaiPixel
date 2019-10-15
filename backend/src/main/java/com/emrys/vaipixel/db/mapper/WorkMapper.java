@@ -13,8 +13,8 @@ public interface WorkMapper {
     @Select("SELECT work.id, title, description, created_time, updated_time, width, height, type, large_url, " +
             "medium_url, small_url, thumb_url, author_id, category_id, like_count, page_view, user_view " +
             "FROM t_work AS work " +
-            "LEFT JOIN t_photo ON t_photo.work_id = work.work_id " +
-            "LEFT JOIN t_video ON t_video.work_id = work.work_id ")
+            "LEFT JOIN t_photo ON t_photo.work_id = work.id " +
+            "LEFT JOIN t_video ON t_video.work_id = work.id ")
     @ResultMap("com.emrys.vaipixel.db.mapper.WorkMapper.WorkResultMap")
     List<Work> getWorks();
 
@@ -22,9 +22,9 @@ public interface WorkMapper {
             "medium_url, small_url, thumb_url, author_id, category_id, like_count, page_view, user_view, " +
             "camera_make, camera_model, lens, focal_length, aperture, iso, shutter, device_name, play_url " +
             "FROM t_work AS work " +
-            "LEFT JOIN t_photo ON t_photo.work_id = work.work_id " +
-            "LEFT JOIN t_video ON t_video.work_id = work.work_id " +
-            "WHERE work.work_id = #{workId}")
+            "LEFT JOIN t_photo ON t_photo.work_id = work.id " +
+            "LEFT JOIN t_video ON t_video.work_id = work.id " +
+            "WHERE work.id = #{workId}")
     @ResultMap("com.emrys.vaipixel.db.mapper.WorkMapper.WorkResultMap")
     Work getWorkById(long workId);
 
@@ -32,9 +32,9 @@ public interface WorkMapper {
             "medium_url, small_url, thumb_url, author_id, category_id, like_count, page_view, user_view, " +
             "camera_make, camera_model, lens, focal_length, aperture, iso, shutter, device_name, play_url " +
             "FROM t_work AS work " +
-            "LEFT JOIN t_photo ON t_photo.work_id = work.work_id " +
-            "LEFT JOIN t_video ON t_video.work_id = work.work_id " +
-            "WHERE work.work_id = #{workId} AND type = #{type}")
+            "LEFT JOIN t_photo ON t_photo.work_id = work.id " +
+            "LEFT JOIN t_video ON t_video.work_id = work.id " +
+            "WHERE work.id = #{workId} AND type = #{type}")
     @ResultMap("com.emrys.vaipixel.db.mapper.WorkMapper.WorkResultMap")
     Work getWorkByIdAndType(long workId, WorkTypeEnum type);
 
@@ -43,8 +43,8 @@ public interface WorkMapper {
     @Insert("INSERT INTO t_work(id, title, description, width, height, type, large_url, medium_url, small_url, " +
             "thumb_url, category_id, author_id) " +
             "VALUES " +
-            "(#{workId}, #{title}, #{description}, #{width}, #{height}, #{type}, #{image.largeUrl}, #{image.mediumUrl}, " +
-            "#{image.smallUrl}, #{image.thumbUrl}, #{category.categoryId}, #{author.userId})")
+            "(#{id}, #{title}, #{description}, #{width}, #{height}, #{type}, #{image.largeUrl}, #{image.mediumUrl}, " +
+            "#{image.smallUrl}, #{image.thumbUrl}, #{category.id}, #{author.id})")
     void insertWork(Work work);
 
     @Delete("DELETE FROM t_work WHERE work_id = #{id}")

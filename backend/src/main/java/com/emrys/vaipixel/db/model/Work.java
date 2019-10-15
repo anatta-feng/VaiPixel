@@ -12,8 +12,6 @@ import java.util.List;
 @Data
 public class Work implements Serializable {
     private long id;
-    @JsonIgnore
-    private long workId;
     private String title;
     private String description;
     private Timestamp createdTime;

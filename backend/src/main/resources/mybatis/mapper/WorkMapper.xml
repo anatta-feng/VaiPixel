@@ -19,7 +19,7 @@
             <case value="photo" resultType="com.emrys.vaipixel.db.model.Photo">
                 <id column="photo_id" property="photoId"/>
                 <result column="camera_make" property="cameraParameter.make"/>
-                <result column="camera_modele" property="cameraParameter.model"/>
+                <result column="camera_model" property="cameraParameter.model"/>
                 <result column="lens" property="cameraParameter.lens"/>
                 <result column="focal_length" property="cameraParameter.focalLength"/>
                 <result column="aperture" property="cameraParameter.aperture"/>
